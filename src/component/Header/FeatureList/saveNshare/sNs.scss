@@ -1,0 +1,15 @@
+.sNsBox {
+    width: 70%;
+    background-color: white;
+    border: 2px solid dodgerblue;
+    border-radius: 25px;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+        width: max-content;
+        border:none;
+    }
+}

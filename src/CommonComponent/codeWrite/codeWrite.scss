@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Staatliches");
+
+
+.codeWrite {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .Editor {
+        height:100%;
+        overflow: hidden;
+    }
+    &_nameBox {
+        display: flex;
+        align-items: center;
+        background-color:#d0ebff;
+    }
+
+    &_name {
+        font-size: 1.5rem;
+        margin-left: 5px;
+        font-family: 'Staatliches', cursive;
+        letter-spacing: 1px;
+    }
+}
+
+.htmlStyle {
+    color: #f03e3e;
+}
+
+.cssStyle {
+    color: dodgerblue;
+}
+
+.jsStyle {
+    color:#fcc419;
+}
+.FaIcon {
+    margin-left:2px;
+}

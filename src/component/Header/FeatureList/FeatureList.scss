@@ -1,0 +1,21 @@
+.FeatureList{ 
+    display: flex;
+    div {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        transition: all .5s;
+        &:hover {
+            background-color: rgba(211, 211, 211,0.9);
+        }
+
+    }
+}
+.saveColor {
+    color: white;
+}
