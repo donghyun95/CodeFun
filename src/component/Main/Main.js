@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CodeContainer from './CodeContainer';
 import IframeRedux from '../../CommonComponent/Iframe/IframeRedux';
 import Iframe from '../../CommonComponent/Iframe/Iframe';
+
 import cx from 'classnames';
 import './Main.scss';
 class Main extends Component {
@@ -46,8 +47,10 @@ class Main extends Component {
     }
 
     render() {
-        const { isautoRunChecked } = this.props;
-        const { htmlSource, cssSource, JsSource } = this.state;
+        const { isautoRunChecked, } = this.props;
+        const { htmlSource, cssSource, JsSource, LibList } = this.state;
+        let IframeRe = null;
+        IframeRe = <IframeRedux></IframeRedux>;
         return (
             <div>
                 <div className={cx('CodeContainer-Cover')} style={{ height: `${this.state.Height}px` }}>
@@ -67,7 +70,7 @@ class Main extends Component {
                     </div>
                 </div>
                 <div className={cx({ hidden: this.state.hidden })} style={{ height: `${document.body.clientHeight - this.state.Height - 93}px` }}>
-                    {isautoRunChecked ? <IframeRedux></IframeRedux> : <Iframe htmlSource={htmlSource} cssSource={cssSource} JsSource={JsSource}></Iframe>}
+                    {IframeRe}
                 </div>
             </div>
         );

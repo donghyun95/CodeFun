@@ -2,9 +2,11 @@ import Iframe from './Iframe';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => ({
-    Htmlvalue: state.Htmlvalue,
-    Cssvalue : state.Cssvalue,
-    Jsvalue: state.Jsvalue
+    htmlSource: state.Htmlvalue,
+    cssSource : state.Cssvalue,
+    JsSource: state.Jsvalue,
+    LibList: state.LibraryList,
+    UpdateNumber: state.UpdateNumber
 });
 
-export default connect(mapStateToProps)(Iframe);
+export default connect(mapStateToProps,null)(Iframe);

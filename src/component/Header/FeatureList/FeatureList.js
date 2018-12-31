@@ -4,13 +4,21 @@ import { connect } from 'react-redux';
 import Actions from '../../../actions/actionType';
 import './FeatureList.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave, faPlus, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faSave, faPlus, faSignInAlt, faUserPlus, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 
 
 
-const FeatureList = ({ Save, AddLib, Login }) => {
+const FeatureList = ({ Save, AddLib, Login, Update }) => {
     return (
         <div className={'FeatureList'}>
+            <div onClick={Update}>
+                <Button>
+                    <span className="saveColor">
+                        <FontAwesomeIcon icon={faSyncAlt} size={'2x'} />
+                    </span>
+                </Button>
+            </div>
+
             <div onClick={Save}>
                 <Button>
                     <span className="saveColor">
@@ -50,7 +58,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     Save: () => dispatch(Actions.changemodal({ bool: true, component: 'Save' })),
     AddLib: () => dispatch(Actions.changemodal({ bool: true, component: 'AddLib' })),
-    Login: () => dispatch(Actions.changemodal({ bool: true, component: 'Login' }))
+    Login: () => dispatch(Actions.changemodal({ bool: true, component: 'Login' })),
+    Update: () => dispatch(Actions.updatenumber())
 });
 
 export default connect(null, mapDispatchToProps)(FeatureList);
