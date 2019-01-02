@@ -1,20 +1,16 @@
 .dropdown {
     position: relative;
     display: inline-block;
-    width: 50%;
-    
+    width: 100%;
     .dropBtn {
-        background-color: #3498DB;
+        background-color: #eaeff0;
         width: 100%;
-        color: white;
-        padding: 16px;
+        color: black;
+        padding: 10px;
         font-size: 16px;
         border: none;
         cursor: pointer;
-
-        &:hover {
-            background-color: #0c70b7;
-        }
+        outline: none;
     }
 }
 

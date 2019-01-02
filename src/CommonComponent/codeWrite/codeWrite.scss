@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Staatliches");
+@import '../../utill/utll.scss';
 
 
 .codeWrite {
@@ -18,8 +18,11 @@
     &_name {
         font-size: 1.5rem;
         margin-left: 5px;
-        font-family: 'Staatliches', cursive;
+        font-family: $fontStaat, cursive;
         letter-spacing: 1px;
+    } 
+    div {
+        padding: 0;
     }
 }
 

@@ -22,7 +22,7 @@ import { faHtml5,faJsSquare,faCss3Alt } from '@fortawesome/free-brands-svg-icons
 class codeWrite extends Component {
     editor = null
     codeMirror = null
-
+    Timer = null
     html = (<span className={'htmlStyle FaIcon'}>
                 <FontAwesomeIcon icon={faHtml5} size={"2x"}/>
             </span>)
@@ -51,11 +51,18 @@ class codeWrite extends Component {
             theme: 'monokai'
         });
         this.codeMirror.doc.setValue(`${this.props.textvalue}`)
-        this.codeMirror.on('change',(doc)=>{this.props.change(doc.getValue())});
+        this.codeMirror.on('change',(doc)=>{
+            if(this.Timer){
+                clearTimeout(this.Timer);
+                this.Timer = setTimeout(()=>{this.props.change(doc.getValue());},500);
+            } else {
+                this.Timer = setTimeout(()=>{this.props.change(doc.getValue());},500);
+            }
+            
+        });
         this.codeMirror.setSize('100%','100%');
     }
     render() {
-        
         return (
             <div className={'codeWrite'}>
                 <div className={'codeWrite_nameBox'}>

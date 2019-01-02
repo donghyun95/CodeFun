@@ -5,12 +5,17 @@ const InitialState = {
     Cssvalue : 'div{width:100px;}',
     Jsvalue: 'console.log("1")',
     Modal : {isModalOpen: false, childComponent: null},
-    LibraryList : ["https://code.jquery.com/jquery-3.1.0.js"],
-    UpdateNumber: 0
+    LibraryList : [],
+    UpdateNumber: 0,
+    AutoRunCheck: true,
+    LibIdNum:0
 }
 
 
 function MainReducer(state=InitialState, action) {
+
+    
+
     switch(action.type) {
         case Action.CHANGEHTML : 
             return Object.assign({},state,{
@@ -35,19 +40,25 @@ function MainReducer(state=InitialState, action) {
             });
         case Action.ADDLIBRARY:
             return Object.assign({},state,{
-                LibraryList: [...state.LibraryList,action.payload]
+                LibraryList: [...state.LibraryList,{id:state.LibIdNum++,url:action.payload}]
             });
         case Action.MODIFYURL:
+            const findIndex = state.LibraryList.findIndex((ele)=>ele.id === action.payload.index);
             return Object.assign({},state,{
-                LibraryList: [...state.LibraryList.slice(0,action.payload.index),action.payload.URL,...state.LibraryList.slice(action.payload.index+1)]
+                LibraryList: [...state.LibraryList.slice(0,findIndex),{...state.LibraryList[findIndex],url:action.payload.URL},...state.LibraryList.slice(findIndex+1)]
             });
         case Action.REMOVEURL:
+            const findIndex2 = state.LibraryList.findIndex((ele)=>ele.id === action.payload.index);
             return Object.assign({},state,{
-                LibraryList: [...state.LibraryList.slice(0,action.payload),...state.LibraryList.slice(action.payload+1)]
+                LibraryList: [...state.LibraryList.slice(0,findIndex2),...state.LibraryList.slice(findIndex2+1)]
             });
         case Action.UPDATENUMBER:
             return Object.assign({},state,{
                 UpdateNumber: state.UpdateNumber+1
+            });
+        case Action.AUTORUNCHECK:
+            return Object.assign({},state,{
+                AutoRunCheck: !state.AutoRunCheck
             });
         default: return state;
     }

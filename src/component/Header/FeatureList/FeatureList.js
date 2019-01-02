@@ -4,14 +4,17 @@ import { connect } from 'react-redux';
 import Actions from '../../../actions/actionType';
 import './FeatureList.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave, faPlus, faSignInAlt, faUserPlus, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
-
+import { faSave, faPlus, faUser, faUserPlus, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
+import AutoRun from './AutoRun/AutoRun';
 
 
 const FeatureList = ({ Save, AddLib, Login, Update }) => {
     return (
         <div className={'FeatureList'}>
-            <div onClick={Update}>
+            
+            <AutoRun></AutoRun>
+
+            <div onClick={Update} className="FeatureList_Box">
                 <Button>
                     <span className="saveColor">
                         <FontAwesomeIcon icon={faSyncAlt} size={'2x'} />
@@ -19,28 +22,28 @@ const FeatureList = ({ Save, AddLib, Login, Update }) => {
                 </Button>
             </div>
 
-            <div onClick={Save}>
+            <div onClick={Save} className="FeatureList_Box">
                 <Button>
                     <span className="saveColor">
                         <FontAwesomeIcon icon={faSave} size={'2x'} />
                     </span>
                 </Button>
             </div>
-            <div onClick={AddLib}>
+            <div onClick={AddLib} className="FeatureList_Box">
                 <Button>
                     <span className="saveColor">
                         <FontAwesomeIcon icon={faPlus} size={'2x'} />
                     </span>
                 </Button>
             </div>
-            <div onClick={Login}>
+            <div onClick={Login} className="FeatureList_Box">
                 <Button>
                     <span className="saveColor">
-                        <FontAwesomeIcon icon={faSignInAlt} size={'2x'} />
+                        <FontAwesomeIcon icon={faUser} size={'2x'} />
                     </span>
                 </Button>
             </div>
-            <div>
+            <div className="FeatureList_Box">
                 <Button>
                     <span className="saveColor">
                         <FontAwesomeIcon icon={faUserPlus} size={'2x'} />
@@ -59,7 +62,7 @@ const mapDispatchToProps = (dispatch) => ({
     Save: () => dispatch(Actions.changemodal({ bool: true, component: 'Save' })),
     AddLib: () => dispatch(Actions.changemodal({ bool: true, component: 'AddLib' })),
     Login: () => dispatch(Actions.changemodal({ bool: true, component: 'Login' })),
-    Update: () => dispatch(Actions.updatenumber())
+    Update: () => dispatch(Actions.updatenumber()),
 });
 
 export default connect(null, mapDispatchToProps)(FeatureList);

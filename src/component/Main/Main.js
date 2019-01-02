@@ -49,8 +49,6 @@ class Main extends Component {
     render() {
         const { isautoRunChecked, } = this.props;
         const { htmlSource, cssSource, JsSource, LibList } = this.state;
-        let IframeRe = null;
-        IframeRe = <IframeRedux></IframeRedux>;
         return (
             <div>
                 <div className={cx('CodeContainer-Cover')} style={{ height: `${this.state.Height}px` }}>
@@ -69,8 +67,8 @@ class Main extends Component {
                         </svg>
                     </div>
                 </div>
-                <div className={cx({ hidden: this.state.hidden })} style={{ height: `${document.body.clientHeight - this.state.Height - 93}px` }}>
-                    {IframeRe}
+                <div className={cx({ hidden: this.state.hidden })} style={{ height: `${document.body.clientHeight - this.state.Height - 70}px` }}>
+                    <IframeRedux></IframeRedux>
                 </div>
             </div>
         );

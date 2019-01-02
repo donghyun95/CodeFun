@@ -11,13 +11,19 @@ class InputType extends Component {
             InputValue: ev.target.value
         });
     }
+    AddBtnClick = (value) => {
+        if(value.length > 0) {
+            this.props.dispatchUrl(value);
+            this.setState({InputValue: ""});
+        }
+    }
     
     render() {
         return (
             <div className="InputType">
-                <div>Script</div>
+                <h2>ADD LIBRARY</h2>
                 <input value={this.state.InputValue} onChange={this.Change}></input>
-                <button onClick={()=>{this.props.dispatchUrl(this.state.InputValue); this.setState({InputValue:""});}}>추가</button>
+                <button className="libAddbtn" onClick={()=>this.AddBtnClick(this.state.InputValue)}>ADD</button>
             </div>
         );
     }

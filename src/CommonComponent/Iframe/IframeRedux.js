@@ -6,7 +6,8 @@ const mapStateToProps = (state) => ({
     cssSource : state.Cssvalue,
     JsSource: state.Jsvalue,
     LibList: state.LibraryList,
-    UpdateNumber: state.UpdateNumber
+    UpdateNumber: state.UpdateNumber,
+    isAutoRunChecked: state.AutoRunCheck
 });
 
 export default connect(mapStateToProps,null)(Iframe);

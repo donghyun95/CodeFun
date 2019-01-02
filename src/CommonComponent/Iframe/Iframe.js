@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Iframe.scss';
 class Iframe extends Component {
-    Ifr = null;
+    IfrBox = null
 
     componentDidMount() {
         this.IframeContentLoad();
@@ -12,37 +12,48 @@ class Iframe extends Component {
     }
 
     shouldComponentUpdate(nextProps,nextState) {
-        if(this.props.UpdateNumber === nextProps.UpdateNumber){
-            return false;
+        if(!nextProps.isAutoRunChecked){
+            if(this.props.UpdateNumber === nextProps.UpdateNumber){
+                return false;
+            }
         }
         return true;
     }
 
     IframeContentLoad = () => {
         const {htmlSource,cssSource,JsSource,LibList} = this.props;
-        const DOMContent = this.Ifr.contentWindow.document;
-        // DOMContent.open();
-        // DOMContent.write(htmlSource);
-        // DOMContent.close();
-        DOMContent.body.append(htmlSource);
+        this.IfrBox.innerHTML = '';
+        console.log(this.IfrBox);
+
+        const Ifr = document.createElement('iframe');
+        this.IfrBox.append(Ifr);
+        Ifr.frameBorder=0;
+        const DOMContent = Ifr.contentWindow.document;
+        const dasdas = window.frames[0];
+        console.log(DOMContent);
+        console.log(Ifr);
+        console.log(dasdas);
         const style = document.createElement('style');
         style.textContent = cssSource;
-        DOMContent.head.append(style);
+        DOMContent.open();
+        DOMContent.write('<head>');
+        DOMContent.write(`<style>${cssSource}</style>`)
 
-        LibList.forEach((item)=>{
-            const CDNScript = document.createElement('script');
-            CDNScript.src = item;    
-            DOMContent.head.append(CDNScript);
+        LibList.forEach((item)=>{    
+            DOMContent.write(`<script src=${item.url}></script>`);
         });
 
-        const script = document.createElement('script');
-        script.text = JsSource;
-        DOMContent.body.append(script);
+        DOMContent.write('</head>');
+        DOMContent.write(`<body>${htmlSource}</body>`);
+        DOMContent.write(`<script>try{${JsSource}}catch(e){console.error(e.message);}</script>`);
+        DOMContent.close();
+        
     }
-
     render() {
         return (
-            <iframe ref={ref => this.Ifr=ref}  frameBorder={0} className={'Iframe'}></iframe>
+            <div ref={ref => this.IfrBox=ref} className={'IfrBox'}>
+            
+            </div>
         );
     }
 }

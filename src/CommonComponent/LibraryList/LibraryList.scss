@@ -1,0 +1,53 @@
+@import '../../utill/utll.scss';
+
+.libitemBox {
+    position: relative;
+    height: 50px;
+    margin-top: 20px;
+    
+    &_url {
+        width:80%;
+        font-family: $fontWork , sans-serif;
+        padding:5px;
+        word-break:break-all;
+    }
+    
+    &_confirmicon {
+        position: absolute;
+        right:0;
+        top:0px;
+        cursor: pointer;
+        color: #4CAF50;
+    }
+    &_removeicon {
+        position: absolute;
+        right:5px;
+        top:20px;
+        cursor: pointer;
+        color: red;
+    }
+    &_modifyicon {
+        position: absolute;
+        right:4px;
+        top:0px;
+        cursor: pointer;
+        color: #4CAF50;
+    }
+}
+.modifyUrlBox {
+    position: relative;
+    height: 50px;
+    margin-top: 20px;
+
+    input {
+        font-family: $fontWork , sans-serif;
+        border:none;
+        border-bottom: 2px solid black;
+        outline: none;
+        font-size: 1rem;
+        width: 80%;
+        padding: 5px;
+        transition: all .2s;
+        
+    }
+}

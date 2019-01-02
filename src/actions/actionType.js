@@ -10,6 +10,7 @@ const REMOVEURL = 'REMOVEURL';
 
 const UPDATENUMBER = 'UPDATENUMBER';
 
+const AUTORUNCHECK = 'AUTORUNCHECK';
 
 const changehtml = (value) => {
     return {
@@ -66,4 +67,12 @@ const updatenumber = () => {
     }
 }
 
-export default {CHANGECSS,CHANGEHTML,CHANGEJS,CHANGEMODAL,ADDLIBRARY,MODIFYURL,REMOVEURL,UPDATENUMBER,changecss,changehtml,changejs,changemodal,addlibrary,modifyurl,removeurl,updatenumber};
+const autoruncheck = () => {
+    return {
+        type: AUTORUNCHECK
+    }
+}
+
+export default {CHANGECSS,CHANGEHTML,CHANGEJS,CHANGEMODAL,ADDLIBRARY,MODIFYURL,REMOVEURL,UPDATENUMBER,AUTORUNCHECK,changecss,changehtml,changejs,changemodal,addlibrary,modifyurl,removeurl,updatenumber,
+    autoruncheck
+};

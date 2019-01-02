@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import Actions from '../../actions/actionType';
+import './LibraryList.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLock, faLockOpen, faTimes} from '@fortawesome/free-solid-svg-icons'
 class list extends Component {
 
     state = {
-        isDblClicked : false,
-        inputValue : this.props.url
+        isDblClicked: false,
+        inputValue: this.props.url
     }
-    Change = (ev) => {this.setState({
-        ...this.state,
-        inputValue: ev.target.value
-    })}
+    Change = (ev) => {
+        this.setState({
+            ...this.state,
+            inputValue: ev.target.value
+        })
+    }
 
     DblClick = () => {
         this.setState({
             ...this.state,
-            isDblClicked : true
+            isDblClicked: true
         });
     }
 
@@ -23,31 +28,40 @@ class list extends Component {
             ...this.state,
             isDblClicked: false
         });
-        this.props.dispatchFunc(Actions.modifyurl({index:this.props.index,URL:this.state.inputValue}));
+        this.props.dispatchFunc(Actions.modifyurl({ index: this.props.index, URL: this.state.inputValue }));
     }
 
     removeUrl = () => {
         this.setState({
             ...this.state,
-            isDblClicked: false
+            isDblClicked: false,
         });
-        this.props.dispatchFunc(Actions.removeurl(this.props.index));
+        this.props.dispatchFunc(Actions.removeurl({index:this.props.index}));
     }
 
-//()=>{this.props.removeUrl(); this.setState({...this.state,isDblClicked: false})}
     render() {
-        if(this.state.isDblClicked){
+        if (this.state.isDblClicked) {
             return (
-                <div>
+                <div className="modifyUrlBox">
                     <input value={this.state.inputValue} onChange={this.Change}></input>
-                    <button onClick={this.modifyUrl}>수정</button>
-                    <button onClick={this.removeUrl}>삭제</button>
+                    <span className="libitemBox_confirmicon" onClick={this.modifyUrl}>
+                    <FontAwesomeIcon icon={faLockOpen} size="1x"/>
+                    </span>
+                    <span className="libitemBox_removeicon" onClick={this.removeUrl}>
+                        <FontAwesomeIcon icon={faTimes} size="1x"/>
+                    </span>
                 </div>
             )
         }
         return (
-            <div onDoubleClick={this.DblClick}>
-                <span>{this.props.url}</span>
+            <div onDoubleClick={this.DblClick} className="libitemBox">
+                <div className="libitemBox_url">{this.props.url}</div>
+                <span className="libitemBox_modifyicon" onClick={this.DblClick}>
+                    <FontAwesomeIcon icon={faLock} size="1x"/>
+                </span>
+                <span className="libitemBox_removeicon" onClick={this.removeUrl}>
+                    <FontAwesomeIcon icon={faTimes} size="1x"/>
+                </span>
             </div>
         );
     }

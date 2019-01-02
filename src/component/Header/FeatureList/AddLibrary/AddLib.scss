@@ -1,18 +1,21 @@
 @import '../../../../utill/utll.scss';
 
 .AddLibrary {
-    width: 35%;
+    width: 30%;
     margin-left: 20px;
     border-radius: 5px;
-    border:2px solid;
+    border:2px solid white;
     height: 80%;
-    background-image: linear-gradient(to right bottom,#343a40,#212529);
+    display: flex;
+    flex-direction: column;
     .header {
         padding: 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         color:white;
+        height:10%;
+        background-color: black;
         .closeBtn {
             width: 4rem;
             background-color: #f03e3e;
@@ -36,8 +39,17 @@
 
     .main {
         padding: 1rem 1.5rem;
-        &-select {
-            
+        background-color: white;
+    }
+    .footer {
+        flex: 1;
+        background-color: white;
+        overflow: auto;
+        .LibListBox { 
+            margin: 15px 20px;
+            margin-top: 0;
+            height: 92%;
+            overflow: auto;
         }
     }
 }
