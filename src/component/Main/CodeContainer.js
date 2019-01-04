@@ -118,9 +118,9 @@ class CodeContainer extends Component {
 
 
 const mapStatetoProps = (state) => ({
-    Htmlvalue: state.Htmlvalue,
-    Cssvalue: state.Cssvalue,
-    Jsvalue: state.Jsvalue
+    Htmlvalue: state.Project.Htmlvalue,
+    Cssvalue: state.Project.Cssvalue,
+    Jsvalue: state.Project.Jsvalue
 });
 
 const mapDispatchtoProps = (dispatch) => ({

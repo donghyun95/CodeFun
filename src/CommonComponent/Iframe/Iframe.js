@@ -23,16 +23,12 @@ class Iframe extends Component {
     IframeContentLoad = () => {
         const {htmlSource,cssSource,JsSource,LibList} = this.props;
         this.IfrBox.innerHTML = '';
-        console.log(this.IfrBox);
-
         const Ifr = document.createElement('iframe');
         this.IfrBox.append(Ifr);
         Ifr.frameBorder=0;
         const DOMContent = Ifr.contentWindow.document;
-        const dasdas = window.frames[0];
-        console.log(DOMContent);
-        console.log(Ifr);
-        console.log(dasdas);
+        // const secondFrame = window.frames[0];
+
         const style = document.createElement('style');
         style.textContent = cssSource;
         DOMContent.open();

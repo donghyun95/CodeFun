@@ -1,3 +1,14 @@
+@import '../../../utill/utll.scss';
+
+
 .TitleBox {
     flex: 1;
+    font-family: $fontWork , sans-serif;
+}
+.Title {
+
+    color:white;
+}
+.UserId {
+    color: white;
 }

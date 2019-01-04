@@ -21,5 +21,5 @@ class AutoRun extends Component {
 
 
 export default connect((state)=>({
-    curAutoRun : state.AutoRunCheck
+    curAutoRun : state.Project.AutoRunCheck
 }),(dispatch)=>({AutoRunCheck: () => dispatch(Actions.autoruncheck())}))(AutoRun);

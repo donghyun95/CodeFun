@@ -21,7 +21,7 @@ const Modal = ({ closeModal, childComponent }) => {
 };
 
 const mapStateToProps = (state) => ({
-    childComponent: state.Modal.childComponent
+    childComponent: state.Project.Modal.childComponent
 });
 
 const mapDispatchToProps = (dispatch) => ({

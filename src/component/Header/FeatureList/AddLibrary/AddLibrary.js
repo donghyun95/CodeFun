@@ -35,7 +35,7 @@ class AddLibrary extends Component {
 
 const mapStateToProps = (state,OwnProps) => ({
     closeModal: OwnProps.closeModal,
-    libList : state.LibraryList
+    libList : state.Project.LibraryList
 });
 
 const mapDispatchToProps = (dispatch) => ({

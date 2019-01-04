@@ -3,10 +3,10 @@ import './Title.scss';
 const TitleName = ({title,userId}) => {
     return (
         <div className={'TitleBox'}>
-            <div>
+            <div className='Title'>
                 {title}
             </div>
-            <div>
+            <div className='UserId'>
                A PEN BY {userId}
             </div>
         </div>

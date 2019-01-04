@@ -6,14 +6,21 @@ import {createStore,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 import * as serviceWorker from './serviceWorker';
-
-import MainReducer from './reducers/MainReducer';
-
-let store = createStore(MainReducer,applyMiddleware(logger));
-    
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
+import rootReducer from './reducers';
+import Login from './component/Login/login';
+import thunk from 'redux-thunk';
+let store = createStore(rootReducer,applyMiddleware(logger,thunk));
+console.log(store.getState());
 ReactDOM.render(
 <Provider store={store}>
-    <App />
+    <Router>
+        <Switch>
+            <Route path="/" exact component={App} />
+            <Route path="/login" exact component={Login} />
+        </Switch>
+    </Router>
+    
 </Provider>, 
 document.getElementById('root'));
 

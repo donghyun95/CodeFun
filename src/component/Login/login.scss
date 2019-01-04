@@ -1,0 +1,29 @@
+@import '.././../utill/utll.scss';
+* {
+    box-sizing:border-box;
+}
+
+
+.LoginBody {
+    font-family: $fontWork , sans-serif;
+    a {
+        font-size: 3rem;
+        font-weight: 600;
+        color: dodgerblue;
+        text-decoration: none;
+    }
+}
+
+.LoginBox {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.SpinnerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+}

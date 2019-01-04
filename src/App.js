@@ -1,23 +1,21 @@
 import React, { Component,Fragment } from 'react';
 import './App.scss';
-import AddLibrary from './component/Header/FeatureList/AddLibrary/AddLibrary';
-import DropDown from './CommonComponent/dropdown/dropdown';
-import CodeEditor from './CommonComponent/codeWrite/codeWrite';
-import CodeContainer from './component/Main/CodeContainer';
 import Header from './component/Header';
 import Main from './component/Main/Main';
 import Modal from './CommonComponent/Modal/Modal';
 import {connect} from 'react-redux';
-import Actions from './actions/actionType';
-import Save from './component/Header/FeatureList/saveNshare/sNs';
-import Library from './component/Header/FeatureList/AddLibrary/AddLibrary';
-import Login from './component/Header/FeatureList/Login/Login';
+
 class App extends Component {
+
+  componentDidMount(){
+    console.log('did mount');
+  }
+
 
   render() {
     return (
       <div className="App">
-        <Header></Header>
+        <Header userId={this.props.userId} Title={this.props.Title}></Header>
         <Main></Main>
         {this.props.isModalOpen && <Modal></Modal>}
       </div>
@@ -27,7 +25,9 @@ class App extends Component {
 
 const mapStateToProps = function(state) {
     return ({
-      isModalOpen: state.Modal.isModalOpen
+      isModalOpen: state.Project.Modal.isModalOpen,
+      userId: state.Project.userId,
+      Title: state.Project.Title
     });  
 } 
 

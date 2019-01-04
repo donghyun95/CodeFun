@@ -23,7 +23,6 @@ class dropdown extends Component {
     }
 
     render() {
-        console.log(this.props.JqueryAdd);
         return (
             <div className={cx('dropdown')}>
                 <button onClick={this.toggleContent} className={cx('dropBtn')}>선택</button>

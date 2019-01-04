@@ -5,12 +5,15 @@ import './Header.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 class Header extends Component {
+
     render() {
         return (
             <div className={'Header'}>
                 <FontAwesomeIcon icon={faHeart} size={"2x"} />
-                <Title userId='dongdonggri' title='일단뭐라도' />
+                <Title userId={this.props.userId} title={this.props.Title} />
                 <FeatureList/>
             </div>
         );
