@@ -41,7 +41,7 @@ class Iframe extends Component {
 
         DOMContent.write('</head>');
         DOMContent.write(`<body>${htmlSource}</body>`);
-        DOMContent.write(`<script>try{${JsSource}}catch(e){console.error(e.message);}</script>`);
+        DOMContent.write(`<script>${JsSource}</script>`);
         DOMContent.close();
         
     }

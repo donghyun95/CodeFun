@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './sNs.scss';
-class sNs extends Component {
-    render() {
-        return (
-            <div className='sNsBox' onClick={(ev)=>{ev.stopPropagation();}}>
-                <span>adnjnwdnkadnkadnkansknkadnkandjkadnkadnjkadnjkadnskadnjaksnskadna</span>
-            </div>
-        );
-    }
-}
+
+const sNs = ({children}) => {
+    return (
+        <div className='sNsBox' onClick={(ev)=>{ev.stopPropagation();}}>
+            <span>{children}</span>
+        </div>
+    );
+};
 
 export default sNs;
+
+

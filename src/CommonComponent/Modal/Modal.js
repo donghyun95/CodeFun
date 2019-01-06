@@ -5,12 +5,20 @@ import Save from '../../component/Header/FeatureList/saveNshare/sNs';
 import AddLib from '../../component/Header/FeatureList/AddLibrary/AddLibrary';
 import Login from '../../component/Header/FeatureList/Login/Login';
 import Actions from '../../actions/actionType';
-const Modal = ({ closeModal, childComponent }) => {
+import Spinner from '../../CommonComponent/Spinner/spinner';
+const Modal = ({ closeModal, childComponent, url, pending }) => {
+    if (pending) {
+        return (
+            <div className={'ModalBox'} onClick={closeModal}>
+                <Spinner></Spinner>
+            </div>
+        );
+    }
     return (
         <div className={'ModalBox'} onClick={closeModal}>
             {(() => {
                 switch (childComponent) {
-                    case 'Save': return (<Save />);
+                    case 'Save': return (<Save>{url}</Save>);
                     case 'AddLib': return (<AddLib closeModal={closeModal} />);
                     case 'Login': return (<Login />);
                     default: return null;
@@ -21,7 +29,9 @@ const Modal = ({ closeModal, childComponent }) => {
 };
 
 const mapStateToProps = (state) => ({
-    childComponent: state.Project.Modal.childComponent
+    childComponent: state.Project.Modal.childComponent,
+    url: state.Project.Modal.url,
+    pending: state.Project.pending
 });
 
 const mapDispatchToProps = (dispatch) => ({

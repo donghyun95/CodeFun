@@ -18,6 +18,7 @@ ReactDOM.render(
         <Switch>
             <Route path="/" exact component={App} />
             <Route path="/login" exact component={Login} />
+            <Route path="/project/:projectId" component={App}/>
         </Switch>
     </Router>
     

@@ -4,11 +4,28 @@
 .TitleBox {
     flex: 1;
     font-family: $fontWork , sans-serif;
-}
-.Title {
-
-    color:white;
-}
-.UserId {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: white;
+    .Title {
+        font-size:1.2rem;
+        font-weight: 600;
+        
+    }
+    .TitleInput {
+        color: white;
+        font-size:1.2rem;
+        font-weight: 600;
+        font-family: $fontWork , sans-serif;
+        border:none;
+        background-color: transparent;
+        outline: none;
+    }
+    
+    .UserId {
+        padding-top:3px;
+        font-size: 0.7rem;
+        font-weight:500;
+    }
 }

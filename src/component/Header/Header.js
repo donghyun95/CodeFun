@@ -13,7 +13,7 @@ class Header extends Component {
         return (
             <div className={'Header'}>
                 <FontAwesomeIcon icon={faHeart} size={"2x"} />
-                <Title userId={this.props.userId} title={this.props.Title} />
+                <Title/>
                 <FeatureList/>
             </div>
         );

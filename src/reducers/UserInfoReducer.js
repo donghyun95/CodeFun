@@ -1,12 +1,12 @@
 import Action from '../actions/actionType';
 
 const initialState = {
+    USERObjectId: null,
     USER: null,
     ProjectList : [],
-    Token: null,
     isLoggedin : false,
     pending: false,
-    error: false
+    error: false,
 };
 
 
@@ -20,15 +20,17 @@ function UserInfoReducer(state=initialState, action) {
         case Action.USERREQUEST_SUCCESS:
             return Object.assign({},state,{
                 pending: false,
-                isLoggedin: true
+                isLoggedin: true,
+                USERObjectId: action.payload.userObjectId,
+                USER: action.payload.userId,
+                ProjectList: action.payload.projectList
             });
         case Action.USERREQUEST_FAIL:
             return Object.assign({},state,{
                 pending: false,
                 error: true,
                 isLoggedin: false
-            })
-
+            });
         default: return state;
     }
 }

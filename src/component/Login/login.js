@@ -11,11 +11,10 @@ class login extends Component {
         ID: "",
         PassWord: ""
     }
-
     handleSubmit = (ev) => {
         ev.preventDefault();
-        this.props.requestLogin("asd","123123")
-        .then(()=>{this.props.history.replace('/')}).catch((error)=>alert(error.message));
+        this.props.requestLogin(ev.target.ID.value, ev.target.PassWord.value)
+        .then(()=>{this.props.history.replace('/');}).catch((error)=>alert(error.message));
     }
 
     handleChange = (ev) => {
@@ -27,8 +26,8 @@ class login extends Component {
 
     componentDidMount() {
         console.log("mount");
-        if(this.props.isLoggedin){
-            alert("로그인되었습니다.");
+        if(sessionStorage.getItem('token')){
+            alert("이미로그인되었습니다.");
             this.props.history.replace('/');
         }
     }

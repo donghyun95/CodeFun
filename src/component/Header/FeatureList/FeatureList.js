@@ -22,7 +22,13 @@ const FeatureList = ({ Save, AddLib, Login, Update }) => {
                 </Button>
             </div>
 
-            <div onClick={Save} className="FeatureList_Box">
+            <div onClick={()=>{
+                if(sessionStorage.getItem('token')){
+                    Save(sessionStorage.getItem('token')).catch((err)=> {alert(err); sessionStorage.removeItem('token');});
+                } else {
+                    alert('로그인을해주세요');
+                }
+            }} className="FeatureList_Box">
                 <Button>
                     <span className="saveColor">
                         <FontAwesomeIcon icon={faSave} size={'2x'} />
@@ -59,7 +65,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    Save: () => dispatch(Actions.changemodal({ bool: true, component: 'Save' })),
+    Save: (token) => dispatch(Actions.projectSaveThunk(token)),
     AddLib: () => dispatch(Actions.changemodal({ bool: true, component: 'AddLib' })),
     Login: () => dispatch(Actions.changemodal({ bool: true, component: 'Login' })),
     Update: () => dispatch(Actions.updatenumber()),

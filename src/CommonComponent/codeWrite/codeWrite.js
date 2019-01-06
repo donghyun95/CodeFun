@@ -23,6 +23,8 @@ class codeWrite extends Component {
     editor = null
     codeMirror = null
     Timer = null
+    Cursor = null
+    Cursor2 = null
     html = (<span className={'htmlStyle FaIcon'}>
                 <FontAwesomeIcon icon={faHtml5} size={"2x"}/>
             </span>)
@@ -37,8 +39,24 @@ class codeWrite extends Component {
         </span>
     )
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if(this.props.textvalue !== nextProps.textvalue){
+            return true;
+        }
+        return false;
+    }
+
     componentDidMount() {
+        console.log('codeEditor didMount');
         this.initializeEditor();
+    }
+    componentDidUpdate(){
+        if(!this.codeMirror){
+            return;    
+        }   
+        this.Cursor = this.codeMirror.doc.getCursor();
+        this.codeMirror.doc.setValue(`${this.props.textvalue}`);
+        this.codeMirror.doc.setCursor(this.Cursor);
     }
 
     initializeEditor = () => {
@@ -52,6 +70,9 @@ class codeWrite extends Component {
         });
         this.codeMirror.doc.setValue(`${this.props.textvalue}`)
         this.codeMirror.on('change',(doc)=>{
+            
+            // console.log(this.Cursor);
+            // console.log(this.props.name);
             if(this.Timer){
                 clearTimeout(this.Timer);
                 this.Timer = setTimeout(()=>{this.props.change(doc.getValue());},500);
