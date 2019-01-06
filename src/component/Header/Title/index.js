@@ -56,7 +56,7 @@ class index extends Component {
                     </div>
                 }
                 <div className='UserId'>
-                    A PEN BY {userId}
+                    <span>A PEN BY</span><span>{userId}</span>
                 </div>
             </div>
         );

@@ -21,6 +21,8 @@ const APPINIT = 'APPINIT';
 const USERREQUEST_PENDING = 'USERREQURSTPENDING';
 const USERREQUEST_SUCCESS = 'USERREQUESTSUCCESS';
 const USERREQUEST_FAIL = 'USERREQUESTFAIL';
+const REGISTERREQUEST_SUCCESS =  'REGISTERREQUEST_SUCCESS';
+const REGISTERREQUEST_FAIL = 'REGISTERREQUEST_FAIL';
 const PROJECTREQUEST_PENDING = 'PROJECTREQUEST_PENDING';
 const PROJECTREQUEST_SUCCESS = 'PROJECTREQUEST_SUCCESS';
 const PROJECTREQUEST_FAIL = 'PROJECTREQUREST_FAIL';
@@ -112,6 +114,18 @@ const userrequest_fail = () => {
     }
 }
 
+const registerrequest_success = () => {
+    return {
+        type: REGISTERREQUEST_SUCCESS
+    }
+}
+
+const registerrequest_fail = () => {
+    return {
+        type: REGISTERREQUEST_FAIL
+    }
+}
+
 const appinit = (userId, Title) => {
     return {
         type: APPINIT,
@@ -178,6 +192,22 @@ const loginRequestThunk = function (userid, userPassword) {
     }
 }
 
+const registerRequestThunk = function(userid, userPassword) {
+    return function (dispatch) {
+        dispatch(userrequest_pending());
+
+        return axios({
+            method: 'post',
+            url: '/api/adduser',
+            data: {
+                ID: userid,
+                PASSWORD: userPassword
+            }
+        }).then(()=>dispatch(registerrequest_success())).catch((err)=>{console.log("에러발생");dispatch(registerrequest_fail()); throw new Error(err);});
+    }
+}
+
+
 const projectRequestThunk = function (projectId) {
     return function (dispatch) {
         dispatch(projectrequest_pending());
@@ -233,11 +263,11 @@ const projectSaveThunk = function (token) {
 
 export default {
     CHANGECSS, CHANGEHTML, CHANGEJS, CHANGETITLE,CHANGEMODAL, ADDLIBRARY, MODIFYURL, REMOVEURL, UPDATENUMBER, AUTORUNCHECK,
-    USERREQUEST_FAIL, USERREQUEST_PENDING, USERREQUEST_SUCCESS, APPINIT, PROJECTREQUEST_PENDING, PROJECTREQUEST_SUCCESS, PROJECTREQUEST_FAIL,PROJECTSAVE_SUCCESS,
-
+    USERREQUEST_FAIL, USERREQUEST_PENDING, USERREQUEST_SUCCESS,REGISTERREQUEST_SUCCESS,REGISTERREQUEST_FAIL, APPINIT, PROJECTREQUEST_PENDING, PROJECTREQUEST_SUCCESS, 
+    PROJECTREQUEST_FAIL,PROJECTSAVE_SUCCESS,
 
     changecss, changehtml, changejs, changetitle,changemodal, addlibrary, modifyurl, removeurl, updatenumber, autoruncheck,
-    userrequest_fail, userrequest_pending, userrequest_success, appinit, projectrequest_fail, projectrequest_success, projectrequest_pending,
+    userrequest_fail, userrequest_pending, userrequest_success,registerrequest_success,registerrequest_fail, appinit, projectrequest_fail, projectrequest_success, projectrequest_pending,
 
-    loginRequestThunk, projectRequestThunk, checkLoginThunk, projectSaveThunk
+    loginRequestThunk, projectRequestThunk, checkLoginThunk, projectSaveThunk,registerRequestThunk
 };

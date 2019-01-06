@@ -2,10 +2,10 @@ import Action from '../actions/actionType';
 
 const InitialState = {
     Title: "No Title",
-    userId: "none",
-    Htmlvalue: '<div>아랏따리!</div>',
-    Cssvalue: 'div{width:100px;}',
-    Jsvalue: 'console.log("1")',
+    userId: " ",
+    Htmlvalue: "",
+    Cssvalue: "",
+    Jsvalue: "",
     Modal: { isModalOpen: false, childComponent: null },
     LibraryList: [],
     UpdateNumber: 0,

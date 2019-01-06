@@ -11,7 +11,7 @@
     .Title {
         font-size:1.2rem;
         font-weight: 600;
-        
+        color:#dcedc8;
     }
     .TitleInput {
         color: white;
@@ -27,5 +27,9 @@
         padding-top:3px;
         font-size: 0.7rem;
         font-weight:500;
+        & > span:first-child {
+            color: #fff59d;
+            margin-right: 0.5rem;
+        }
     }
 }

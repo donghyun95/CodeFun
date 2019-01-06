@@ -31,6 +31,15 @@ function UserInfoReducer(state=initialState, action) {
                 error: true,
                 isLoggedin: false
             });
+        case Action.REGISTERREQUEST_SUCCESS:
+            return Object.assign({},state,{
+                pending: false
+            });
+        case Action.REGISTERREQUEST_FAIL:
+            return Object.assign({},state,{
+                pending: false,
+                error: true
+            });
         default: return state;
     }
 }

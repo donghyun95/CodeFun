@@ -5,7 +5,7 @@ import Main from './component/Main/Main';
 import Modal from './CommonComponent/Modal/Modal';
 import {connect} from 'react-redux';
 import Actions from './actions/actionType';
-
+import {withRouter,Redirect,Link } from "react-router-dom"
 class App extends Component {
 
 
@@ -33,9 +33,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        
         <Header userId={this.props.projectUserId} Title={this.props.Title}></Header>
         <Main></Main>
         {this.props.isModalOpen && <Modal></Modal>}
+        
       </div>
     );
   }

@@ -16,9 +16,10 @@ ReactDOM.render(
 <Provider store={store}>
     <Router>
         <Switch>
-            <Route path="/" exact component={App} />
-            <Route path="/login" exact component={Login} />
             <Route path="/project/:projectId" component={App}/>
+            <Route path="/" exact component={App} />
+            <Route path="/login" exact component={()=><Login></Login>} />
+            <Route path="/register" exact render={()=><Login register={true}></Login>} />
         </Switch>
     </Router>
     
