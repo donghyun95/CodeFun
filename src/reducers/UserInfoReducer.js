@@ -29,7 +29,10 @@ function UserInfoReducer(state=initialState, action) {
             return Object.assign({},state,{
                 pending: false,
                 error: true,
-                isLoggedin: false
+                isLoggedin: false,
+                USERObjectId: null,
+                USER: null,
+                ProjectList: []
             });
         case Action.REGISTERREQUEST_SUCCESS:
             return Object.assign({},state,{

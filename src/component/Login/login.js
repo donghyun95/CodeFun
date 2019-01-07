@@ -22,7 +22,16 @@ class login extends Component {
 
     handleRegisterSubmit = (ev) => {
         ev.preventDefault();
-        this.props.requestRegister(ev.target.ID.value, ev.target.PassWord.value)
+        const {ID, PassWord} = ev.target;
+        if(ID.value.length < 1 || PassWord.value.length < 1){
+            alert('1글자이상써주세요');
+            return;
+        }
+        if(ID.value.length >20 || PassWord.value.length >20) {
+            alert('20글자 이내로 작성해주세요');
+            return;
+        }
+        this.props.requestRegister(ID.value, PassWord.value)
         .then(() =>{this.props.history.push('/login');alert('등록에 성공했습니다.');})
         .catch(()=> {alert('이미존재하는사용자이거나 특수문자를 넣었습니다.')});
     }

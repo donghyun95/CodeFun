@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App, {Project} from './App';
 import {createStore,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
@@ -16,7 +16,7 @@ ReactDOM.render(
 <Provider store={store}>
     <Router>
         <Switch>
-            <Route path="/project/:projectId" component={App}/>
+            <Route path="/project/:projectId" component={Project}/>
             <Route path="/" exact component={App} />
             <Route path="/login" exact component={()=><Login></Login>} />
             <Route path="/register" exact render={()=><Login register={true}></Login>} />

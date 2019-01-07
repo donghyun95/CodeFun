@@ -25,29 +25,28 @@ const FeatureList = ({ Save, AddLib, Login, Update, isLogin,USER,userId }) => {
 
 
             {USER === userId ? 
-            <Fragment>
-                <div onClick={()=>{
-                    if(sessionStorage.getItem('token')){
-                        Save(sessionStorage.getItem('token')).catch((err)=> {alert(err); sessionStorage.removeItem('token');});
-                    } else {
+            <div onClick={()=>{
+                if(sessionStorage.getItem('token')){
+                    Save(sessionStorage.getItem('token')).catch((err)=> {alert(err); sessionStorage.removeItem('token');});
+                } else {
                         alert('로그인을해주세요');
-                    }
-                }} className="FeatureList_Box">
-                    <Button>
-                        <span className="saveColor">
-                            <FontAwesomeIcon icon={faSave} size={'2x'} />
-                        </span>
-                    </Button>
-                </div>
-                <div onClick={AddLib} className="FeatureList_Box">
-                    <Button>
-                        <span className="saveColor">
-                            <FontAwesomeIcon icon={faPlus} size={'2x'} />
-                        </span>
-                    </Button>
-                </div>
-            </Fragment>
+                }
+            }} className="FeatureList_Box">
+                <Button>
+                    <span className="saveColor">
+                        <FontAwesomeIcon icon={faSave} size={'2x'} />
+                    </span>
+                </Button>
+            </div>
             : null}
+            <div onClick={AddLib} className="FeatureList_Box">
+                <Button>
+                    <span className="saveColor">
+                        <FontAwesomeIcon icon={faPlus} size={'2x'} />
+                    </span>
+                </Button>
+            </div>
+
             {isLogin ? null : 
             <Link to='/login'>
                 <div className="FeatureList_Box">
