@@ -1,0 +1,134 @@
+@import '../../utill/utll.scss';
+
+.userFind {
+
+    &Box{            
+        height: 100vh;
+        background-color:#eceff1 ;
+    }
+
+    &__container {
+
+        text-align: center;
+
+        &__userName {
+            margin-top: 2rem;
+           & > div{
+             font-family: $fontWork sans-serif;
+             font-size: 1.5rem;
+             text-align: center;
+           }
+        }
+
+        &__project {
+            background-color: #e0e0e0;
+            justify-content: space-between;
+            margin-top: 2rem;
+            overflow: auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 60rem;
+            height: 40rem;
+            box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
+            border-radius: 5px;
+        }
+    }
+
+    &__Header {
+        height: 70px;
+        background-color: #b39ddb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > a {
+            color: white;
+            font-size:2rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    }
+    &__Body {
+        
+        text-align: left;
+        display: inline-block;
+        margin: 0 auto;
+    }
+}
+
+.projectItem {
+    position: relative;
+    margin: 1rem;
+    width: 25rem;
+    height: 7.5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+    &__Title {
+        width: 100%;
+        background: rgba(255,255,255,1);
+        font-family: 'Work Sans' sans-serif;
+        height: 100%;
+        border-radius: 5px;
+        .TitleBox {
+            
+            // border-bottom: 2px solid #b39ddb;
+            height:4rem;
+            & > a {
+                height: 100%;
+            }
+            &__Title {
+                margin-top: 1rem;
+                margin-left:1rem;
+            }
+
+            &__Create {
+                font-size: 0.8rem;
+                color: grey;
+                text-align: right;
+                padding-right: 1rem;
+            }
+        }
+
+        & a {
+          text-decoration: none;
+          color: black;
+          font-size: 1rem;
+          font-weight: 600;  
+        }
+    }
+
+    &__star {
+        padding: 0.5rem;
+        font-weight: 600;
+        font-size: 1.5rem;
+        
+    }
+
+    &__remove {
+        
+        position: absolute;
+        top: 0;
+        right: -10px;
+        color: #f13532;
+        padding: 0 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+}
+.NostarColor {
+    color: grey;
+    font-size : 1.5rem;
+    cursor: pointer;
+    transition: all .3s;
+    &:hover {
+        color: #ffea00;
+    }
+}
+.starColor2 {
+    color: #ffea00;
+}
+.starColor {
+    color: #ffea00;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    font-family: Georgia, "맑은 고딕"
+}
+

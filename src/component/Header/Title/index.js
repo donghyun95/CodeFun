@@ -10,6 +10,23 @@ class index extends Component {
         status: false
     }
 
+    Titleinput = null;
+
+
+    decideTitle = () => {
+        if(this.state.Titleinput.length > 0 && this.state.Titleinput.length < 31 ){
+            
+            this.props.modifyTitle(this.state.Titleinput);
+            this.setState({
+                ...this.state,
+                status: false
+            });
+            document.removeEventListener('click',this.decideTitle);
+        } else {
+            alert('1글자이상 30자미만으로적어주세요')   
+        }
+    }
+
     convertInput = (ev) => {
         const { userId, LoginuserId } = this.props;
         if (userId === LoginuserId) {
@@ -17,7 +34,7 @@ class index extends Component {
                 ...this.state,
                 status: true
             });
-            
+            document.addEventListener('click',this.decideTitle);             
         }
     }
     
@@ -30,26 +47,19 @@ class index extends Component {
     
     handleKeyUpEv = (ev) => {
         if (ev.keyCode === 13) {
-            if(this.state.Titleinput.length > 0 && this.state.Titleinput.length < 31 ){
-                this.setState({
-                    ...this.state,
-                    status: false
-                });
-                this.props.modifyTitle(this.state.Titleinput);
-            } else {
-                alert('1글자이상 30자미만으로적어주세요')   
-            }
+            this.decideTitle();
         }
     }
 
-
+    
+    
     render() {
         const { title, userId } = this.props;
         return (
             <div className={'TitleBox'}>
                 {this.state.status ?
                     <div>
-                        <input className='TitleInput' onChange={this.handleChangeEv} value={this.state.Titleinput} onKeyUp={this.handleKeyUpEv} autoFocus></input>
+                        <input className='TitleInput' onChange={this.handleChangeEv} value={this.state.Titleinput} onKeyUp={this.handleKeyUpEv} autoFocus ></input>
                     </div>
                 :   <div className='Title' onDoubleClick={this.convertInput}>
                         <span>{title}</span>

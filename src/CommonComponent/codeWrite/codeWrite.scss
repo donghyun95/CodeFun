@@ -12,7 +12,9 @@
     &_nameBox {
         display: flex;
         align-items: center;
-        background-color:#d0ebff;
+        // background-image: linear-gradient(to bottom, #b39ddb  ,#5c6bc0 );
+        background-color:#bbdefb ;
+        color:black;
     }
 
     &_name {

@@ -9,17 +9,24 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 import rootReducer from './reducers';
 import Login from './component/Login/login';
+import UserFind from './component/userFind/userFind';
+import PostedList from './component/postedList/postedList';
 import thunk from 'redux-thunk';
+
 let store = createStore(rootReducer,applyMiddleware(logger,thunk));
 console.log(store.getState());
+
 ReactDOM.render(
 <Provider store={store}>
     <Router>
         <Switch>
-            <Route path="/project/:projectId" component={Project}/>
             <Route path="/" exact component={App} />
-            <Route path="/login" exact component={()=><Login></Login>} />
-            <Route path="/register" exact render={()=><Login register={true}></Login>} />
+            <Route path="/project/:projectId" component={Project}/>
+            <Route path="/login" render={()=><Login></Login>} />
+            <Route path="/register"  render={()=><Login register={true}></Login>} />
+            <Route path="/userFind/:userId" component={UserFind} ></Route>
+            <Route path="/postedList" component={PostedList}></Route>
+            <Route render={()=><div>404페이지</div>}></Route>
         </Switch>
     </Router>
     

@@ -22,10 +22,6 @@ class dropdown extends Component {
         document.removeEventListener('click',this.removeVisible);
     }
 
-    componentWillUnmount() {
-        console.log("언마운트됨");
-    }
-
     render() {
         return (
             <div className={cx('dropdown')}>

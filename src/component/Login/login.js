@@ -106,13 +106,13 @@ class login extends Component {
                                 <form onSubmit={this.handleLoginSubmit} className="Card__form">
                                     <div>
                                         <span className="loginColor">
-                                        <FontAwesomeIcon icon={faUser} size='1x'/>
+                                        <FontAwesomeIcon icon={faUser}/>
                                         </span>
                                         <input type="text" name="ID" value={this.state.ID} onChange={this.handleChange}></input>
                                     </div>
                                     <div>
-                                        <span className="loginColor">
-                                        <FontAwesomeIcon icon={faKey} size='1x'/>
+                                        <span className="loginColor loginKey">
+                                        <FontAwesomeIcon icon={faKey} />
                                         </span>
                                         <input type="password" name="PassWord" value={this.state.PassWord} onChange={this.handleChange}></input>
                                     </div>

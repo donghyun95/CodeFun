@@ -23,7 +23,6 @@ function UserInfoReducer(state=initialState, action) {
                 isLoggedin: true,
                 USERObjectId: action.payload.userObjectId,
                 USER: action.payload.userId,
-                ProjectList: action.payload.projectList
             });
         case Action.USERREQUEST_FAIL:
             return Object.assign({},state,{

@@ -4,15 +4,33 @@ import { connect } from 'react-redux';
 import Actions from '../../../actions/actionType';
 import './FeatureList.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave, faPlus, faUser, faUserPlus, faSyncAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faSave, faPlus, faUser, faSearch, faSyncAlt, faSignOutAlt, faListUl } from '@fortawesome/free-solid-svg-icons'
 import AutoRun from './AutoRun/AutoRun';
 import { Link ,withRouter} from 'react-router-dom';
 
 
-const FeatureList = ({ Save, AddLib, Login, Update, isLogin,USER,userId }) => {
+const FeatureList = ({ Save, AddLib, Search, Update, isLogin,USER,userId }) => {
     return (
         <div className={'FeatureList'}>
-            
+            <Link to="/postedList">
+                <div className="FeatureList_Box">
+                    <Button>
+                        <span className="saveColor">
+                            <FontAwesomeIcon icon={faListUl} size={'2x'} />
+                        </span>
+                    </Button>
+                </div>
+            </Link>
+
+
+            <div onClick={Search} className="FeatureList_Box">
+                <Button>
+                    <span className="saveColor">
+                        <FontAwesomeIcon icon={faSearch} size={'2x'} />
+                    </span>
+                </Button>
+            </div>
+
             <AutoRun></AutoRun>
 
             <div onClick={Update} className="FeatureList_Box">
@@ -82,7 +100,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     Save: (token) => dispatch(Actions.projectSaveThunk(token)),
     AddLib: () => dispatch(Actions.changemodal({ bool: true, component: 'AddLib' })),
-    Login: () => dispatch(Actions.changemodal({ bool: true, component: 'Login' })),
+    Search: () => dispatch(Actions.changemodal({ bool: true, component: 'Search' })),
     Update: () => dispatch(Actions.updatenumber()),
 });
 
