@@ -1,9 +1,10 @@
 import React from 'react';
 import './userFind.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faStar, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faTimes, faShareAltSquare } from '@fortawesome/free-solid-svg-icons';
 import {Link} from 'react-router-dom';
-const proejectItem = ({creator,createdDate,starNum,isOwner,handleRemove, projectID, projectTitle}) => {
+
+const proejectItem = ({creator,createdDate,starNum,isOwner,handleRemove, projectID, projectTitle, modalTrigger}) => {
     return (
         <div className="projectItem">
             <div className="projectItem__Title">
@@ -27,6 +28,9 @@ const proejectItem = ({creator,createdDate,starNum,isOwner,handleRemove, project
                         <FontAwesomeIcon icon={faStar} size='1x'></FontAwesomeIcon>
                     </span>
                     <span>{starNum}</span>
+                    <span className="shareFeature" onClick={()=>modalTrigger(projectID)}>
+                        <FontAwesomeIcon icon={faShareAltSquare} size='1x' />
+                    </span>
                 </div>
             </div>
             {
@@ -36,6 +40,7 @@ const proejectItem = ({creator,createdDate,starNum,isOwner,handleRemove, project
                 </span> : null
             }
         </div>
+        
     );
 };
 

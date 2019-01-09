@@ -46,7 +46,9 @@ class postedList extends Component {
 
     render() {
         const list = this.props.postList.map((item)=>{
-            return (<PostItem key={item._id} Title={item.content.Title} userId={item.content.userId} projectId={item._id} starlength={item.stars.length} loginUser={this.props.loginUser} isStared={item.stars.includes(this.props.loginUser)}></PostItem>)
+            const itemDate = new Date(item.createDate).toLocaleString('ko-KR');
+            return (<PostItem key={item._id} Title={item.content.Title} userId={item.content.userId} projectId={item._id} starlength={item.stars.length} 
+                loginUser={this.props.loginUser} isStared={item.stars.includes(this.props.loginUser)} createDate={itemDate}></PostItem>)
         });
 
         return (

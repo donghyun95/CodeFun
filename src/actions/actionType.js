@@ -276,7 +276,6 @@ const projectSaveThunk = function (token) {
         dispatch(projectrequest_pending());
         dispatch(changemodal({ bool: true, component: null }));
         let State = getState();
-        
         const newProject = Object.assign({}, State.Project, { pending:false,Modal:{isModalOpen: false,childComponent: null},ProjectId: null });
         if (State.UserInfo.isLoggedin && State.UserInfo.USERObjectId) {
             return axios({
@@ -287,9 +286,10 @@ const projectSaveThunk = function (token) {
                 },
                 data: {
                     content: newProject,
-                    creator: State.UserInfo.USERObjectId
+                    creator: State.UserInfo.USERObjectId,
+                    dateValue: new Date().toISOString()
                 }
-            }).then((respone) => {console.log(respone);dispatch(projectsave_success()); dispatch(changemodal({ bool: true, component: 'Save', url: `http://localhost:3000/project/${respone.data.result._id}` })) })
+            }).then((respone) => {console.log(respone);dispatch(projectsave_success()); dispatch(changemodal({ bool: true, component: 'Save', url: `${window.location.hostname}/project/${respone.data.result._id}` })) })
                 .catch((err) => {console.log(err); dispatch(projectrequest_fail());dispatch(changemodal({ bool: false, component: null })); throw new Error("저장실패"); });
         } else {
             alert('저장실패');

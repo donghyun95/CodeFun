@@ -6,7 +6,7 @@ import './Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
-import { BrowserRouter as Router, Route, Link, Switch, withRouter, Redirect } from "react-router-dom"
+import {withRouter} from "react-router-dom"
 
 class Header extends Component {
 

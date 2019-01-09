@@ -11,8 +11,6 @@ class postItem extends Component {
         isStared : this.props.isStared,
         starNum: this.props.starlength
     }
-    //projectId, starlength, userId, Title
-
 
     starClicked = () => {
         if(!sessionStorage.getItem('token') || !this.props.loginUser){
@@ -33,12 +31,22 @@ class postItem extends Component {
     }
 
     render() {
-        console.log(this.props.isStared);
         return (
             <div className={cx("postItem")}>
                 <Link to={`/project/${this.props.projectId}`}>
                     <div className={cx("postItem__Title")}>
-                        {this.props.Title}
+                        <div>
+                            {this.props.Title}
+                        </div>
+                        <div className={cx("postItem__Creator")}>
+                            <div>
+                                {this.props.createDate}
+                            </div>
+                            <div>
+                                By {this.props.userId}
+                            </div>
+                        </div>
+                        
                     </div>
                 </Link>
                 <div className={cx("postItem__Bottom")}>
@@ -51,9 +59,6 @@ class postItem extends Component {
                         </span>
                     </div>
                     <Link to={`/userFind/${this.props.userId}`}>
-                        <span>
-                            By {this.props.userId}
-                        </span>
                     </Link>
                 </div>
             </div>

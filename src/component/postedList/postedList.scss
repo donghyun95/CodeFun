@@ -1,6 +1,6 @@
 .postedList {
     min-height: 100vh;
-    background-color: #fafafa;
+    background-color: #eeeeee;
     
     &__home {
         height: 70px;
@@ -32,12 +32,11 @@
 .postItem {
     font-family: 'Work Sans', sans-serif;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
-    border: 4px solid #ce93d8;
     border-radius: 5px;
     width: 30rem;
     padding: 1rem;
     margin: 3rem auto;
-    
+    background-color: white;    
 
     & > a {
         text-decoration: none;
@@ -46,12 +45,18 @@
 
     &__Title {
         padding-bottom: 0.5rem;
-        border-bottom: 2px solid #c5cae9;
-        font-size: 1.5rem;
+        border-bottom: 2px solid #ffccbc ;
+        font-size: 1.7rem;
         font-weight: 500;
-        
-        
     }
+
+    &__Creator {
+        font-size: 0.8rem;
+        color: grey;
+        text-align: right;
+    }
+
+
     &__Bottom {
         margin-top: 0.5rem;
         display: flex;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CodeContainer from './CodeContainer';
 import IframeRedux from '../../CommonComponent/Iframe/IframeRedux';
-import Iframe from '../../CommonComponent/Iframe/Iframe';
 
 import cx from 'classnames';
 import './Main.scss';
@@ -47,8 +46,6 @@ class Main extends Component {
     }
 
     render() {
-        const { isautoRunChecked, } = this.props;
-        const { htmlSource, cssSource, JsSource, LibList } = this.state;
         return (
             <div>
                 <div className={cx('CodeContainer-Cover')} style={{ height: `${this.state.Height}px` }}>
