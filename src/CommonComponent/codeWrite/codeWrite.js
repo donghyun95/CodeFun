@@ -88,7 +88,7 @@ class codeWrite extends Component {
                         }
                     })()}
                     <span className={'codeWrite_name'}>
-                    {this.props.name}
+                        {this.props.name}
                     </span>
                 </div>
                 <div ref={ref => this.editor=ref} className={'Editor'}></div>

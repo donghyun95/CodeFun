@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import cx from 'classnames';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 import axios from 'axios';
 class postItem extends Component {
     state = {

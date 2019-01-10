@@ -8,6 +8,10 @@ import Actions from '../../actions/actionType';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../../CommonComponent/Modal/Modal';
+import {
+    CSSTransition,
+    TransitionGroup,
+  } from 'react-transition-group';
 class userFind extends Component {
 
     state = {
@@ -20,7 +24,6 @@ class userFind extends Component {
             this.props.checkLogin(sessionStorage.getItem('token'));
         }
         axios.get(`/api/findOneUser/${this.props.match.params.userId}`).then((respone)=>{
-            console.log(respone);
             this.setState({
                 ProjectList: respone.data.ProjectList,
                 userId: respone.data.userId
@@ -46,8 +49,12 @@ class userFind extends Component {
         const UserHasProjectList = this.state.ProjectList.map((item,index)=>{
             const itemDate = new Date(item.createDate).toLocaleString('ko-KR');
             
-        return <ProjectItem key={item._id} starNum={item.stars.length} isOwner={this.props.LogInuser === this.props.match.params.userId} projectID={item._id} projectTitle={item.content.Title} handleRemove={this.handleRemove(index,item._id)} 
-        creator={this.props.match.params.userId} createdDate={itemDate} modalTrigger={this.props.modalTrigger}></ProjectItem>})
+        return (
+        <CSSTransition timeout={1500} classNames="fade" key={item._id} >
+            <ProjectItem starNum={item.stars.length} isOwner={this.props.LogInuser === this.props.match.params.userId} projectID={item._id}
+            projectTitle={item.content.Title} handleRemove={this.handleRemove(index,item._id)} 
+            creator={this.props.match.params.userId} createdDate={itemDate} modalTrigger={this.props.modalTrigger}></ProjectItem>
+        </CSSTransition>)})
         return (
             <Fragment>
             <div className="userFindBox">
@@ -65,7 +72,9 @@ class userFind extends Component {
                             </div>
                         </div>
                         <div className="userFind__container__project">
-                            {UserHasProjectList}
+                            <TransitionGroup component={null}>
+                                {UserHasProjectList}
+                            </TransitionGroup>
                         </div>
                     </div>
                 </div>
