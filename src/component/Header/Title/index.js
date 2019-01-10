@@ -14,6 +14,7 @@ class index extends Component {
 
 
     decideTitle = () => {
+        console.log("decideTitle");
         if(this.state.Titleinput.length > 0 && this.state.Titleinput.length < 31 ){
             
             this.props.modifyTitle(this.state.Titleinput);
@@ -21,9 +22,15 @@ class index extends Component {
                 ...this.state,
                 status: false
             });
-            document.removeEventListener('click',this.decideTitle);
+            document.removeEventListener('click',this.handleDocumentClick);
         } else {
             alert('1글자이상 30자미만으로적어주세요')   
+        }
+    }
+
+    handleDocumentClick = (ev) => {
+        if(ev.target !== this.Titleinput) {
+            this.decideTitle();
         }
     }
 
@@ -34,7 +41,7 @@ class index extends Component {
                 ...this.state,
                 status: true
             });
-            document.addEventListener('click',this.decideTitle);             
+            document.addEventListener('click',this.handleDocumentClick);             
         }
     }
     
@@ -56,10 +63,10 @@ class index extends Component {
     render() {
         const { title, userId } = this.props;
         return (
-            <div className={'TitleBox'}>
+            <div className={'TitleBox'} onClick={(ev)=>{ev.stopPropagation(); console.log("ev발생")}}>
                 {this.state.status ?
-                    <div>
-                        <input className='TitleInput' onChange={this.handleChangeEv} value={this.state.Titleinput} onKeyUp={this.handleKeyUpEv} autoFocus ></input>
+                    <div >
+                        <input className='TitleInput' onChange={this.handleChangeEv} value={this.state.Titleinput} onKeyUp={this.handleKeyUpEv} autoFocus ref={(ref)=>this.Titleinput=ref} ></input>
                     </div>
                 :   <div className='Title' onDoubleClick={this.convertInput}>
                         <span>{title}</span>

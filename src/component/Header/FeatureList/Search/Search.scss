@@ -23,7 +23,10 @@
             background-color: rgba(255,255,255,0.2);
         }
     }
-
+    .userLink {
+        width: 100%;
+        height: 100%;
+    }
     .userLink:visited,.userLink:link {
         text-decoration: none;
         color: white;

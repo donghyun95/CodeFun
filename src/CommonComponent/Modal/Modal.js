@@ -15,16 +15,16 @@ const Modal = ({ closeModal, childComponent, url, pending }) => {
         );
     }
     return (
-        <div className={'ModalBox'} onClick={closeModal}>
-            {(() => {
-                switch (childComponent) {
-                    case 'Save': return (<Save>{url}</Save>);
-                    case 'AddLib': return (<AddLib closeModal={closeModal} />);
-                    case 'Search': return (<Search closeModal={closeModal}/>);
-                    default: return null;
-                }
-            })()}
-        </div>
+            <div className={'ModalBox'} onClick={closeModal}>
+                {(() => {
+                    switch (childComponent) {
+                        case 'Save': return (<Save>{url}</Save>);
+                        case 'AddLib': return (<AddLib closeModal={closeModal} />);
+                        case 'Search': return (<Search closeModal={closeModal}/>);
+                        default: return null;
+                    }
+                })()}
+            </div>
     );
 };
 

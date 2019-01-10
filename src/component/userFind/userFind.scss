@@ -151,3 +151,13 @@
     cursor: pointer;
     color: #c5e1a5 ;
 }
+
+
+.fade-enter {
+    opacity: 0.01;
+    
+}
+.fade-enter-active {
+    opacity: 1;
+    transition: all 1.5s;
+}

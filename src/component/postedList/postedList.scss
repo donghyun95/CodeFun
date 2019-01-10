@@ -75,3 +75,14 @@
 
     
 }
+
+
+.ENTER-enter {
+    transform: translateX(-500px);
+    opacity: 0.01;
+}
+.ENTER-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 1s;
+}

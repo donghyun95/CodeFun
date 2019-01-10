@@ -64,7 +64,7 @@ class Main extends Component {
                         </svg>
                     </div>
                 </div>
-                <div className={cx({ hidden: this.state.hidden })} style={{ height: `${document.body.clientHeight - this.state.Height - 70}px` }}>
+                <div className={cx("IfrContainer",{ hidden: this.state.hidden })} style={{ height: `${document.body.clientHeight - this.state.Height - 68}px` }}>
                     <IframeRedux></IframeRedux>
                 </div>
             </div>
