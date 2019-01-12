@@ -90,5 +90,5 @@ const mapDispatchToProps = (dispatch) => ({
     modalTrigger: (projectId) => dispatch(Actions.changemodal({ bool: true, component: 'Save', url: `${window.location.hostname}/project/${projectId}`}))
 });
 
-
+export {userFind};
 export default connect(mapStateToProps,mapDispatchToProps)(userFind);

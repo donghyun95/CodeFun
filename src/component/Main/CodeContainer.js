@@ -69,10 +69,6 @@ class CodeContainer extends Component {
         }
     }
 
-
-
-
-
     render() {
         return (
             <Fragment>
@@ -130,5 +126,5 @@ const mapDispatchtoProps = (dispatch) => ({
 });
 
 
-
+export { CodeContainer };
 export default connect(mapStatetoProps, mapDispatchtoProps)(CodeContainer);

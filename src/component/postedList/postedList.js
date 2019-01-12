@@ -91,7 +91,7 @@ const mapDispatchToProps = (dispatch) => ({
     InitialRequest : () => dispatch(Actions.boardInitialRequestThunk()),
     postRequest : (type,projectId) => dispatch(Actions.boardRequestThunk(type,projectId)),
     checkLogin: (token) => dispatch(Actions.checkLoginThunk(token))
-})
+});
 
-
+export { postedList };
 export default connect(mapStateToProps,mapDispatchToProps)(postedList);
