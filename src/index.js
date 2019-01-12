@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App, {Project} from './App';
-import {createStore,applyMiddleware} from 'redux';
+import {createStore,applyMiddleware,compose} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 import * as serviceWorker from './serviceWorker';
@@ -12,8 +12,12 @@ import Login from './component/Login/login';
 import UserFind from './component/userFind/userFind';
 import PostedList from './component/postedList/postedList';
 import thunk from 'redux-thunk';
+import Forbidden from './component/ForbiddenPage/forbidden';
 
-let store = createStore(rootReducer,applyMiddleware(logger,thunk));
+// 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger,thunk)));
+
 console.log(store.getState());
 
 ReactDOM.render(
@@ -26,7 +30,7 @@ ReactDOM.render(
             <Route path="/register"  render={()=><Login register={true}></Login>} />
             <Route path="/userFind/:userId" component={UserFind} ></Route>
             <Route path="/postedList" component={PostedList}></Route>
-            <Route render={()=><div>404페이지</div>}></Route>
+            <Route component={Forbidden}></Route>
         </Switch>
     </Router>
     

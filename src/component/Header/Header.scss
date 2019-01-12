@@ -2,7 +2,8 @@
     height:50px;
     
     display: flex;
-    background-color: #212529;
+    // background-color: #212529;
+    background-image: linear-gradient(to right bottom, #7aabf9, #ff7d59);
 
     &__home {
       display: flex;
@@ -10,7 +11,7 @@
       align-items: center;
       justify-content: center;
       margin: 0 1rem;
-      color: #ffebee;
+      color: #c1edff;
       cursor: pointer;
     }
   }

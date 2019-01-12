@@ -15,8 +15,16 @@
             margin-top: 2rem;
            & > div{
              font-family: $fontWork sans-serif;
-             font-size: 1.5rem;
-             text-align: center;
+             font-size: 1.4rem;
+             font-weight: 600;
+             color:white;
+             padding: 1rem;
+             text-align: left;
+            //  background-image: linear-gradient(to right,#7c4dff, #2196f3);
+             background-color: #7aabf9;
+             box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+             border-radius: 5px 5px 0 0;
+             
            }
         }
 
@@ -24,21 +32,21 @@
 
             background-color: #e0e0e0;
             justify-content: space-between;
-            margin-top: 2rem;
             overflow: auto;
             display: flex;
             flex-wrap: wrap;
             width: 60rem;
-            height: 40rem;
+            height: 45rem;
             box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
-            border-radius: 5px;
+            border-radius: 0 0 5px 5px;
             padding: 0 2rem;
         }
     }
 
     &__Header {
         height: 70px;
-        background-color: dodgerblue;
+        // background-color: dodgerblue;
+        background-image: linear-gradient(to right bottom, #7aabf9, #ff7d59);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -69,14 +77,22 @@
     position: relative;
     margin: 1rem;
     width: 25rem;
-    height: 8.2rem;
+    height: min-content;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+    animation-name: FadeIn;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
     &__Title {
         width: 100%;
         background: rgba(255,255,255,1);
         font-family: 'Work Sans' sans-serif;
         height: 100%;
         border-radius: 5px;
+
+        &_body {
+            border-bottom: 2px solid #7aabf9;
+            padding-bottom: 0.5rem;
+        }
         .TitleBox {
             
             height:content;
@@ -86,8 +102,9 @@
             &__Title {
                 font-size: 1.5rem;
                 font-weight: 400;
-                margin-top: 1rem;
+                padding-top: 1rem;
                 margin-left:1rem;
+                
             }
 
             &__Create {
@@ -107,7 +124,7 @@
     }
 
     &__star {
-        padding: 0.5rem;
+        padding: 0.2rem 0 0.5rem 0.5rem;
         font-weight: 600;
         font-size: 1.5rem;
         display: flex;
@@ -125,24 +142,15 @@
         font-size: 1.5rem;
     }
 }
-.NostarColor {
-    color: grey;
-    font-size : 1.5rem;
-    cursor: pointer;
-    transition: all .3s;
-    &:hover {
-        color: #ffea00;
-    }
-}
-.starColor2 {
-    color: #ffea00;
-}
+
+
 .starColor {
     color: #ffea00;
     font-size: 1.7rem;
     margin-right: 0.5rem;
     font-family: Georgia, "맑은 고딕"
 }
+
 
 .shareFeature {
 
@@ -153,11 +161,14 @@
 }
 
 
-.fade-enter {
-    opacity: 0.01;
-    
-}
-.fade-enter-active {
-    opacity: 1;
-    transition: all 1.5s;
+
+
+@keyframes FadeIn {
+    from {
+        opacity: 0.01;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

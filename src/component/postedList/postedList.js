@@ -5,15 +5,15 @@ import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import PostItem from './postItem';
-import {
-    CSSTransition,
-    TransitionGroup,
-  } from 'react-transition-group';
+
 import {connect} from 'react-redux';
 import Actions from '../../actions/actionType';
 class postedList extends Component {
     Timer = null;
     componentDidMount() {
+        if(sessionStorage.getItem('token')){
+            this.props.checkLogin(sessionStorage.getItem('token'));
+        }
         this.props.InitialRequest();
         document.addEventListener('scroll',this.InfiniteScroll);
         this.Timer = setInterval(this.newPostReceive,5000);
@@ -25,13 +25,18 @@ class postedList extends Component {
     }
 
     componentDidUpdate() {
-        console.log(window.innerHeight);
-        console.log(document.body.clientHeight);
         if(window.innerHeight >= document.body.clientHeight){
             if(this.props.postList.length > 0 && !this.props.pending){
                 this.props.postRequest("old",this.props.postList[this.props.postList.length-1]._id).catch((error)=>{alert('포스트를 가져오는데 실패하였습니다.');});   
             }
         }
+    }
+    
+    shouldComponentUpdate(nextProps) {
+        if(this.props.postList.length !== nextProps.postList.length){
+            return true;
+        }
+        return false;
     }
 
     newPostReceive = () => {
@@ -51,10 +56,8 @@ class postedList extends Component {
         const list = this.props.postList.map((item)=>{
             const itemDate = new Date(item.createDate).toLocaleString('ko-KR');
             return (
-                <CSSTransition key={item._id} timeout={1000} classNames="ENTER">
-                    <PostItem  Title={item.content.Title} userId={item.content.userId} projectId={item._id} starlength={item.stars.length} 
+                    <PostItem key={item._id}  Title={item.content.Title} userId={item.content.userId} projectId={item._id} starlength={item.stars.length} 
                     loginUser={this.props.loginUser} isStared={item.stars.includes(this.props.loginUser)} createDate={itemDate}></PostItem>
-                </CSSTransition>
                 )
         });
 
@@ -67,9 +70,7 @@ class postedList extends Component {
                     <Link to='/'>CODE FUN</Link>
                 </div>
                 <div className={cx('postedList__body')}>
-                    <TransitionGroup>
                         {list}
-                    </TransitionGroup>
                 </div>
                 <div className={cx('postedList__footer')}>
 
@@ -89,6 +90,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     InitialRequest : () => dispatch(Actions.boardInitialRequestThunk()),
     postRequest : (type,projectId) => dispatch(Actions.boardRequestThunk(type,projectId)),
+    checkLogin: (token) => dispatch(Actions.checkLoginThunk(token))
 })
 
 

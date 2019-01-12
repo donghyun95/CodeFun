@@ -8,10 +8,7 @@ import Actions from '../../actions/actionType';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../../CommonComponent/Modal/Modal';
-import {
-    CSSTransition,
-    TransitionGroup,
-  } from 'react-transition-group';
+
 class userFind extends Component {
 
     state = {
@@ -50,11 +47,11 @@ class userFind extends Component {
             const itemDate = new Date(item.createDate).toLocaleString('ko-KR');
             
         return (
-        <CSSTransition timeout={1500} classNames="fade" key={item._id} >
-            <ProjectItem starNum={item.stars.length} isOwner={this.props.LogInuser === this.props.match.params.userId} projectID={item._id}
+        
+            <ProjectItem key={item._id} starNum={item.stars.length} isOwner={this.props.LogInuser === this.props.match.params.userId} projectID={item._id}
             projectTitle={item.content.Title} handleRemove={this.handleRemove(index,item._id)} 
             creator={this.props.match.params.userId} createdDate={itemDate} modalTrigger={this.props.modalTrigger}></ProjectItem>
-        </CSSTransition>)})
+        )})
         return (
             <Fragment>
             <div className="userFindBox">
@@ -68,13 +65,11 @@ class userFind extends Component {
                     <div className="userFind__Body">
                         <div className="userFind__container__userName">
                             <div>
-                                {this.props.match.params.userId} 님의 프로젝트 목록입니다.
+                                {this.props.match.params.userId} ProjectList
                             </div>
                         </div>
                         <div className="userFind__container__project">
-                            <TransitionGroup component={null}>
                                 {UserHasProjectList}
-                            </TransitionGroup>
                         </div>
                     </div>
                 </div>

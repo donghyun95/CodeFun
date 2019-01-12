@@ -43,7 +43,8 @@ const mapDispatchToProps = (dispatch) => ({
     VueAdd : () => dispatch(Actions.addlibrary("https://unpkg.com/vue")),
     AngularAdd : () => dispatch(Actions.addlibrary("https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js")),
     JqueryAdd : () => dispatch(Actions.addlibrary("https://code.jquery.com/jquery-3.3.1.min.js")),
-    VelocityAdd: () => dispatch(Actions.addlibrary("//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js")),
+    VelocityAdd: () => {dispatch(Actions.addlibrary("//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"));
+                        dispatch(Actions.addlibrary("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2/velocity.ui.min.js"))},
     LodashAdd : () => dispatch(Actions.addlibrary("https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js")),
     dispatchUrl : (Url) => dispatch(Actions.addlibrary(Url)),
     dispatch

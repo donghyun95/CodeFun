@@ -31,7 +31,7 @@
             & > a {
                 font-size: 3rem;
                 font-weight: 600;
-                color: #9e9e9e;
+                color: #ce93d8;
                 text-decoration: none;
             }
         }
@@ -102,4 +102,28 @@
     display: flex;
     justify-content: center;
     padding-top: 100px;
+}
+.loginFail {
+    animation: FailAnimation 0.5s ease;
+
+}
+
+$transfromVar : 25px;
+
+@keyframes FailAnimation{
+    from {
+        transform: translateX(-$transfromVar)
+    }
+    25% {
+        transform : translateX($transfromVar)
+    }
+    50% {
+        transform: translateX(-$transfromVar)
+    }
+    75% {
+        transform: translateX($transfromVar)
+    }
+    to {
+        transform: translateX(-$transfromVar)
+    }
 }

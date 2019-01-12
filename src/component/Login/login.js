@@ -6,18 +6,32 @@ import Actions from '../../actions/actionType';
 import Spinner from '../../CommonComponent/Spinner/spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
+import cx from 'classnames';
 class login extends Component {
 
 
     state = {
         ID: "",
-        PassWord: ""
+        PassWord: "",
+        loginFail: false
     }
     handleLoginSubmit = (ev) => {
         ev.preventDefault();
         this.props.requestLogin(ev.target.ID.value, ev.target.PassWord.value)
         .then(() => {this.props.history.replace('/');})
-        .catch((error) => alert(error.message));
+        .catch((error) => {
+            console.log(this.state);
+            this.setState({
+                ...this.state,
+                loginFail: true,
+            });
+            setTimeout(()=>{
+                this.setState({
+                    ...this.state,
+                    loginFail: false
+                });
+            },1000);
+        });
     }
 
     handleRegisterSubmit = (ev) => {
@@ -37,6 +51,7 @@ class login extends Component {
     }
     
     handleChange = (ev) => {
+        console.log(this.state);
         const name = ev.target.name;
         this.setState({
             [name]: ev.target.value
@@ -66,7 +81,7 @@ class login extends Component {
                     <div className="LoginBox">
                         <div className="LoginBox__Cover">
                             <Link to='/'>CODE FUN</Link>
-                            <div className="Card">
+                            <div className={cx('Card')}>
                                 <div className="Card__top">
                                     Register
                                 </div>
@@ -99,7 +114,7 @@ class login extends Component {
                     <div className="LoginBox">
                         <div className="LoginBox__Cover">
                             <Link to='/'>CODE FUN</Link>
-                            <div className="Card">
+                            <div className={cx('Card',{loginFail: this.state.loginFail})}>
                                 <div className="Card__top">
                                     Login
                                 </div>

@@ -13,6 +13,7 @@ import 'codemirror/mode/css/css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/addon/hint/show-hint.css';
 import 'codemirror/theme/monokai.css';
+import 'codemirror/theme/base16-light.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5,faJsSquare,faCss3Alt } from '@fortawesome/free-brands-svg-icons';
@@ -64,7 +65,7 @@ class codeWrite extends Component {
             lineNumbers: true,
             lineWrapping: true,
             dragDrop: false,
-            theme: 'monokai'
+            theme: 'base16-light'
         });
         this.codeMirror.doc.setValue(`${this.props.textvalue}`)
         this.codeMirror.on('change',(doc)=>{

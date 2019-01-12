@@ -8,7 +8,7 @@ const proejectItem = ({creator,createdDate,starNum,isOwner,handleRemove, project
     return (
         <div className="projectItem">
             <div className="projectItem__Title">
-                <div className="TitleBox">
+                <div className="projectItem__Title_body">
                     <Link to={`/project/${projectID}`}>
                         <div className="TitleBox__Title">
                            {projectTitle} 

@@ -1,0 +1,27 @@
+.fobidden {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    color:#cfd8dc;
+    & > div {
+        margin-top: 3rem;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    &__backBtn {
+        cursor: pointer;
+        margin-top: 2rem;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        background-color: #00d1b2;
+        border-radius: 5px;
+        color: white;
+        &:hover {
+            background-color: #00bfa5;
+        }
+    }
+    
+}

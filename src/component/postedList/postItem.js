@@ -5,6 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import cx from 'classnames';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+
 class postItem extends Component {
     state = {
         isStared : this.props.isStared,
@@ -12,6 +13,7 @@ class postItem extends Component {
     }
 
     starClicked = () => {
+        console.log('starclicked');
         if(!sessionStorage.getItem('token') || !this.props.loginUser){
             return alert('로그인해주세요.');
         }
@@ -19,6 +21,7 @@ class postItem extends Component {
             isStared: !State.isStared,
             starNum: State.isStared ? State.starNum-1 : State.starNum+1
         }));
+        console.log(this.state);
         
         axios({
             method: 'get',
@@ -31,6 +34,7 @@ class postItem extends Component {
 
     render() {
         return (
+            
             <div className={cx("postItem")}>
                 <Link to={`/project/${this.props.projectId}`}>
                     <div className={cx("postItem__Title")}>

@@ -5,7 +5,6 @@ import Main from './component/Main/Main';
 import Modal from './CommonComponent/Modal/Modal';
 import { connect } from 'react-redux';
 import Actions from './actions/actionType';
-
 class App extends Component {
   render() {
     return (
@@ -24,7 +23,6 @@ const mapStateToProps = function (state) {
     isModalOpen: state.Project.Modal.isModalOpen,
     projectUserId: state.Project.userId,
     Title: state.Project.Title,
-    
   });
 };
 
