@@ -3,16 +3,14 @@ import Action from '../actions/actionType';
 const initialState = {
     USERObjectId: null,
     USER: null,
-    ProjectList : [],
     isLoggedin : false,
     pending: false,
     error: false,
 };
 
-
 function UserInfoReducer(state=initialState, action) {
     switch(action.type) {
-        case Action.USERREQUEST_PENDING :
+        case Action.USERREQUEST_PENDING:
             return Object.assign({},state,{
                 pending: true,
                 error: false
@@ -31,7 +29,6 @@ function UserInfoReducer(state=initialState, action) {
                 isLoggedin: false,
                 USERObjectId: null,
                 USER: null,
-                ProjectList: []
             });
         case Action.REGISTERREQUEST_SUCCESS:
             return Object.assign({},state,{

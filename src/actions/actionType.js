@@ -1,23 +1,16 @@
 import axios from 'axios';
 
-
 const CHANGEHTML = 'CHANGEHTML';
 const CHANGECSS = 'CHANGECSS';
 const CHANGEJS = 'CHANGEJS';
 const CHANGETITLE = 'CHANGETITLE';
 const CHANGEMODAL = 'CHANGEMODAL';
-
 const ADDLIBRARY = 'ADDLIBRARY';
 const MODIFYURL = 'MODIFYURL';
 const REMOVEURL = 'REMOVEURL';
-
 const UPDATENUMBER = 'UPDATENUMBER';
-
 const AUTORUNCHECK = 'AUTORUNCHECK';
-
 const APPINIT = 'APPINIT';
-
-
 const USERREQUEST_PENDING = 'USERREQURSTPENDING';
 const USERREQUEST_SUCCESS = 'USERREQUESTSUCCESS';
 const USERREQUEST_FAIL = 'USERREQUESTFAIL';
@@ -27,14 +20,12 @@ const PROJECTREQUEST_PENDING = 'PROJECTREQUEST_PENDING';
 const PROJECTREQUEST_SUCCESS = 'PROJECTREQUEST_SUCCESS';
 const PROJECTREQUEST_FAIL = 'PROJECTREQUREST_FAIL';
 const PROJECTSAVE_SUCCESS = 'PROJECTSAVE_SUCCESS';
-
 const BOARDREQUEST_PENDING = 'BOARDREQUEST_PENDING';
 const BOARDREQUEST_LAST =  'BOARDREQUEST_LAST';
 const BOARDREQUEST_SUCCESS = 'BOARDREQUEST_SUCCESS';
 const BOARDREQUEST_FAIL = 'BOARDREQUEST_FAIL';
 const BOARDREQUEST_NEWSUCCESS = 'BOARDREQUEST_NEWSUCCESS';
 const BOARDREQUEST_OLDSUCCESS = 'BOARDREQUEST_OLDSUCCESS';
-
 
 
 const changehtml = (value) => {
@@ -209,8 +200,6 @@ const boardrequest_fail = () => {
     }
 };
 
-
-
 const checkLoginThunk = function (token) {
     return function (dispatch) {
         dispatch(userrequest_pending());
@@ -255,7 +244,6 @@ const registerRequestThunk = function(userid, userPassword) {
         }).then(()=>dispatch(registerrequest_success())).catch((err)=>{dispatch(registerrequest_fail()); throw new Error(err);});
     }
 };
-
 
 const projectRequestThunk = function (projectId) {
     return function (dispatch) {
@@ -322,7 +310,6 @@ const boardRequestThunk = function (type,projectId) {
         }).catch((err)=>{dispatch(boardrequest_fail())});
     }
 };
-
 
 export default {
     CHANGECSS, CHANGEHTML, CHANGEJS, CHANGETITLE,CHANGEMODAL, ADDLIBRARY, MODIFYURL, REMOVEURL, UPDATENUMBER, AUTORUNCHECK,

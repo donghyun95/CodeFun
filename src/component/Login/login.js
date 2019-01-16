@@ -13,7 +13,7 @@ class login extends Component {
         PassWord: "",
         loginFail: false
     }
-    
+
     constructor(props) {
         super(props);
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
@@ -21,7 +21,7 @@ class login extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleLoginSubmit (ev) {
+    handleLoginSubmit(ev) {
         ev.preventDefault();
         this.props.requestLogin(ev.target.ID.value, ev.target.PassWord.value)
             .then(() => { this.props.history.replace('/'); })
@@ -92,13 +92,13 @@ class login extends Component {
                             <form onSubmit={register ? this.handleRegisterSubmit : this.handleLoginSubmit} className="Card__form">
                                 <div>
                                     <span className="loginColor">
-                                        <FontAwesomeIcon icon={faUser} size='1x' />
+                                        <FontAwesomeIcon icon={faUser}/>
                                     </span>
                                     <input type="text" name="ID" value={this.state.ID} onChange={this.handleChange}></input>
                                 </div>
                                 <div>
                                     <span className="loginColor">
-                                        <FontAwesomeIcon icon={faKey} size='1x' />
+                                        <FontAwesomeIcon icon={faKey} />
                                     </span>
                                     <input type="password" name="PassWord" value={this.state.PassWord} onChange={this.handleChange}></input>
                                 </div>
@@ -125,5 +125,5 @@ const mapDispatchToProps = (dispatch) => ({
     requestRegister: (userid, userPassword) => dispatch(Actions.registerRequestThunk(userid, userPassword))
 });
 
-export {login};
+export { login };
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(login));

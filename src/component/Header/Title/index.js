@@ -84,7 +84,7 @@ class index extends Component {
                 }
                 <div className='UserId'>
                     <span>A PEN BY</span>
-                      {userId === " " ? <span>{userId}</span> : 
+                      {userId === "" ? null : 
                     <Link to={`/userFind/${userId}`}>{userId}</Link>}
                 </div>
             </div>

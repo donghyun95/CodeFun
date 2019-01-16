@@ -62,7 +62,6 @@ class Main extends Component {
     }
 
     handleMobileHeightResizable(ev) {
-        ev.preventDefault();
         ev.stopPropagation();
         this.mobileheigthResizeStart(this.mobileHeightControll); 
     }

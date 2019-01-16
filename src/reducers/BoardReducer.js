@@ -6,8 +6,6 @@ const initialState = {
     isLast : false
 };
 
-// return Object.assign({},state)
-
 export default function(state=initialState, action) {
     switch(action.type){
         case Action.BOARDREQUEST_PENDING :

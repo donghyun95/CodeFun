@@ -2,7 +2,7 @@ import Action from '../actions/actionType';
 
 const InitialState = {
     Title: "No Title",
-    userId: " ",
+    userId: "",
     Htmlvalue: "",
     Cssvalue: "",
     Jsvalue: "",
@@ -18,8 +18,6 @@ const InitialState = {
 
 
 function MainReducer(state = InitialState, action) {
-
-
 
     switch (action.type) {
         case Action.CHANGEHTML:
@@ -41,10 +39,6 @@ function MainReducer(state = InitialState, action) {
                 Title: action.payload
             });
 
-        case Action.CHILDCOMPONENT:
-            return Object.assign({}, state, {
-                childComponent: action.payload
-            });
         case Action.CHANGEMODAL:
             return Object.assign({}, state, {
                 Modal: { isModalOpen: action.payload.bool, childComponent: action.payload.component, url: action.payload.url }
@@ -59,7 +53,7 @@ function MainReducer(state = InitialState, action) {
                 LibraryList: [...state.LibraryList.slice(0, findIndex), { ...state.LibraryList[findIndex], url: action.payload.URL }, ...state.LibraryList.slice(findIndex + 1)]
             });
         case Action.REMOVEURL:
-            const findIndex2 = state.LibraryList.findIndex((ele) => ele.id === action.payload.index);
+            const findIndex2 = state.LibraryList.findIndex((ele) => ele.id === action.payload);
             return Object.assign({}, state, {
                 LibraryList: [...state.LibraryList.slice(0, findIndex2), ...state.LibraryList.slice(findIndex2 + 1)]
             });
@@ -81,7 +75,6 @@ function MainReducer(state = InitialState, action) {
                 LibraryList: [],
                 LibIdNum: 0,
             });
-
         case Action.PROJECTREQUEST_PENDING:
             return Object.assign({},state, {
                 pending: true,
@@ -106,6 +99,4 @@ function MainReducer(state = InitialState, action) {
     }
 }
 
-// Title: action.payload.Title,
-//                 userId: action.payload.ID,
 export default MainReducer;

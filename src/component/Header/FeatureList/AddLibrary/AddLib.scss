@@ -1,7 +1,7 @@
 @import '../../../../utill/utll.scss';
 
 .AddLibrary {
-    width: 30%;
+    width: 35%;
     margin-left: 20px;
     border-radius: 5px;
     border:2px solid white;
@@ -51,5 +51,11 @@
             height: 92%;
             overflow: auto;
         }
+    }
+}
+@media screen and (max-width: 540px) {
+    .AddLibrary{
+        width: 100%;
+        margin: 0;
     }
 }

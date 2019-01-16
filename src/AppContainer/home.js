@@ -7,9 +7,9 @@ class home extends Component {
         if (sessionStorage.getItem('token')) {
           this.props.checkLogin(sessionStorage.getItem('token'))
             .then(() => this.props.AppInit(this.props.UserInfoUSER, "No Title"))
-            .catch((err) => { sessionStorage.removeItem('token'); alert(err);this.props.AppInit(" ","No Title");});
+            .catch((err) => { sessionStorage.removeItem('token'); alert(err);this.props.AppInit("","No Title");});
         } else {
-          this.props.AppInit(" ","No Title");
+          this.props.AppInit("","No Title");
         }
     }
 

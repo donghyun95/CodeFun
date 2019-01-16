@@ -51,14 +51,16 @@ class postedList extends Component {
 
     newPostReceive() {
         if(this.props.postList.length){
-            this.props.postRequest("new",this.props.postList[0]._id).catch((error)=>{alert('포스트를 가져오는데 실패하였습니다.')});
+            this.props.postRequest("new",this.props.postList[0]._id)
+            .catch((error)=>{alert('포스트를 가져오는데 실패하였습니다.')});
         }
     }
 
 
     InfiniteScroll() {
         if(document.body.clientHeight - window.pageYOffset - window.innerHeight < 250 && !this.props.isLast && !this.props.pending){
-            this.props.postRequest("old",this.props.postList[this.props.postList.length-1]._id).catch((error)=>{alert('포스트를 가져오는데 실패하였습니다.');});
+            this.props.postRequest("old",this.props.postList[this.props.postList.length-1]._id)
+            .catch((error)=>{alert('포스트를 가져오는데 실패하였습니다.');});
         }
     }
 
@@ -83,7 +85,6 @@ class postedList extends Component {
                         {list}
                 </div>
                 <div className={cx('postedList__footer')}>
-
                 </div>
             </div>
         );

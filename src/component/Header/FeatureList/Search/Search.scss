@@ -1,18 +1,14 @@
 @import '../../../../utill/utll.scss';
 
 .SearchBox {
-    
     min-height: 500px;
     min-width: 25rem;
     color: white;
     text-align: center;
     font-family: $fontWork , sans-serif;
-
-
     .Search__userList {
         margin-top: 1rem;
     }
-
     .userItemBox {
         width: 25rem;
         margin: 0 auto;
@@ -47,10 +43,20 @@
         background-color: transparent;
         color: white;
         transition: all .4s;
-
         &:focus {
             width: 25rem;
             border-bottom: 2px solid #90caf9;
+        }
+        &::placeholder {
+            color: #eeeeee ;
+        }
+    }
+}
+
+@media (max-width:540px) {
+    .Search {
+        &__input{
+            margin-top: 6rem;
         }
     }
 }

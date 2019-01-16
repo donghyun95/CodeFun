@@ -37,7 +37,7 @@ class list extends Component {
             ...this.state,
             isDblClicked: false,
         });
-        this.props.dispatchFunc(Actions.removeurl({index:this.props.index}));
+        this.props.dispatchFunc(Actions.removeurl(this.props.index));
     }
 
     render() {

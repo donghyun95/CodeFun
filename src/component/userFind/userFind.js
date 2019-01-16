@@ -16,6 +16,12 @@ class userFind extends Component {
         ProjectList: []
     }
 
+    constructor(props) {
+        super(props);
+        this.handleRemove = this.handleRemove.bind(this);
+        this.handlehistoryBack = this.handlehistoryBack.bind(this);
+    }
+
     componentDidMount() {
         if(sessionStorage.getItem('token')){
             this.props.checkLogin(sessionStorage.getItem('token'));
@@ -28,8 +34,8 @@ class userFind extends Component {
         }).catch((err)=>{alert('해당유저는 존재하지않습니다.'); this.props.history.push('/');});
     }
 
-    handleRemove = (index,projectId) => {
-        return ()=>{
+    handleRemove(index,projectId) {
+        return () => {
             if(window.confirm('정말로 삭제하시겠습니까?')){
                 axios.delete(`/api/projectDelete/${projectId}`).then(()=>{
                     this.setState({...this.state,
@@ -41,11 +47,13 @@ class userFind extends Component {
         }
     }
 
+    handlehistoryBack() {
+        this.props.history.goBack();
+    }
 
     render() {
         const UserHasProjectList = this.state.ProjectList.map((item,index)=>{
             const itemDate = new Date(item.createDate).toLocaleString('ko-KR');
-            
         return (
             <ProjectItem key={item._id} starNum={item.stars.length} isOwner={this.props.LogInuser === this.props.match.params.userId} projectID={item._id}
             projectTitle={item.content.Title} handleRemove={this.handleRemove(index,item._id)} 
@@ -56,7 +64,7 @@ class userFind extends Component {
             <div className="userFindBox">
                 <div className="userFind__container">
                     <div className="userFind__Header">
-                        <span className='backBtn' onClick={()=>{this.props.history.goBack();}}>
+                        <span className='backBtn' onClick={this.handlehistoryBack}>
                             <FontAwesomeIcon icon={faArrowLeft} size="2x"></FontAwesomeIcon>
                         </span>
                         <Link to='/'>CODE FUN</Link>
