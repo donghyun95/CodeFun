@@ -9,6 +9,7 @@ class list extends Component {
         isDblClicked: false,
         inputValue: this.props.url
     }
+    
     Change = (ev) => {
         this.setState({
             ...this.state,

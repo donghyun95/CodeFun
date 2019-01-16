@@ -227,10 +227,8 @@ const checkLoginThunk = function (token) {
 
 const loginRequestThunk = function (userid, userPassword) {
     return function (dispatch) {
-        //요청시작하기전
         dispatch(userrequest_pending());
 
-        //요청시작하기
         return axios({
             method: 'post',
             url: '/api/login',
@@ -254,7 +252,7 @@ const registerRequestThunk = function(userid, userPassword) {
                 ID: userid,
                 PASSWORD: userPassword
             }
-        }).then(()=>dispatch(registerrequest_success())).catch((err)=>{console.log("에러발생");dispatch(registerrequest_fail()); throw new Error(err);});
+        }).then(()=>dispatch(registerrequest_success())).catch((err)=>{dispatch(registerrequest_fail()); throw new Error(err);});
     }
 };
 
@@ -265,9 +263,8 @@ const projectRequestThunk = function (projectId) {
 
         return axios.get(`/api/project/${projectId}`)
             .then((result) => {
-                console.log(result.data.result);
                 dispatch(projectrequest_success(result.data.result));
-            }).catch((error) => { console.log("에러발생"); dispatch(projectrequest_fail()); throw new Error("프로젝트가 없습니다.") });
+            }).catch((error) => {dispatch(projectrequest_fail()); throw new Error("프로젝트가 없습니다.") });
     }
 };
 
@@ -289,8 +286,8 @@ const projectSaveThunk = function (token) {
                     creator: State.UserInfo.USERObjectId,
                     dateValue: new Date().toISOString()
                 }
-            }).then((respone) => {console.log(respone);dispatch(projectsave_success()); dispatch(changemodal({ bool: true, component: 'Save', url: `${window.location.hostname}/project/${respone.data.result._id}` })) })
-                .catch((err) => {console.log(err); dispatch(projectrequest_fail());dispatch(changemodal({ bool: false, component: null })); throw new Error("저장실패"); });
+            }).then((respone) => {dispatch(projectsave_success()); dispatch(changemodal({ bool: true, component: 'Save', url: `${window.location.hostname}/project/${respone.data.result._id}` })) })
+                .catch((err) => {dispatch(projectrequest_fail());dispatch(changemodal({ bool: false, component: null })); throw new Error("저장실패"); });
         } else {
             alert('저장실패');
             dispatch(changemodal({ bool: false, component: null }));

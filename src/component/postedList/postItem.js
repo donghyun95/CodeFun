@@ -7,20 +7,26 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 class postItem extends Component {
-
+    static defaultProps = {
+        isStared: false,
+        starlength: 0
+    }
     state = {
         isStared : this.props.isStared,
         starNum: this.props.starlength
     }
 
+
     starClicked = () => {
         if(!sessionStorage.getItem('token') || !this.props.loginUser){
             return alert('로그인해주세요.');
         }
+        
         this.setState((State)=>({
             isStared: !State.isStared,
             starNum: State.isStared ? State.starNum-1 : State.starNum+1
-        }));        
+        }));
+
         axios({
             method: 'get',
             url: `/api/star/${this.props.projectId}/${this.props.loginUser}`,

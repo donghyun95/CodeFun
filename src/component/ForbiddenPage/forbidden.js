@@ -12,7 +12,7 @@ const forbidden = ({history}) => {
                 <div>404</div>
                 <div>Page Not Found</div>
             </div>
-            <span className="fobidden__backBtn" onClick={()=>{history.goBack()}}>back</span>
+            <span className="fobidden__backBtn" onClick={()=>{history.push('/')}}>Go Home</span>
         </div>
     );
 };

@@ -15,15 +15,12 @@ class Search extends Component {
             ...state,
             SearchInput: ev.target.value
         });
-        if(Search.Timer) {
-            clearTimeout(Search.Timer);
-        }
-        Search.Timer = setTimeout(this.handleSearchUser,250,ev.target.value);
+        this.handleSearchUser(ev.target.value);
     }
+
 
     handleSearchUser = (value) => {
         axios.get(`/api/SearchUser/${value}`).then((respone)=>{
-            console.log('호출됨');
             this.setState({...this.state, receiveUserList: respone.data}); 
         }).catch((err)=>alert(err));
     }
@@ -43,7 +40,5 @@ class Search extends Component {
         );
     }
 }
-
-Search.Timer = null;
 
 export default Search;

@@ -47,7 +47,6 @@ class userFind extends Component {
             const itemDate = new Date(item.createDate).toLocaleString('ko-KR');
             
         return (
-        
             <ProjectItem key={item._id} starNum={item.stars.length} isOwner={this.props.LogInuser === this.props.match.params.userId} projectID={item._id}
             projectTitle={item.content.Title} handleRemove={this.handleRemove(index,item._id)} 
             creator={this.props.match.params.userId} createdDate={itemDate} modalTrigger={this.props.modalTrigger}></ProjectItem>

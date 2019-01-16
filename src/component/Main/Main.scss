@@ -21,7 +21,7 @@
     .heightresizable_svgBox {
         position: absolute;
         top: 25%;
-        left: 45%;
+        left: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -29,4 +29,9 @@
 }
 .IfrContainer {
     height: 585px;
+}
+.IframeSpinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

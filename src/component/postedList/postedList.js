@@ -9,6 +9,19 @@ import PostItem from './postItem';
 import {connect} from 'react-redux';
 import Actions from '../../actions/actionType';
 class postedList extends Component {
+    static defaultProps = {
+        postList : [],
+        pending: false,
+        isLast : false,
+        loginUser : null
+    }
+
+    constructor(props) {
+        super(props);
+        this.newPostReceive = this.newPostReceive.bind(this);
+        this.InfiniteScroll = this.InfiniteScroll.bind(this);
+    }
+
     Timer = null;
     componentDidMount() {
         if(sessionStorage.getItem('token')){
@@ -33,20 +46,17 @@ class postedList extends Component {
     }
     
     shouldComponentUpdate(nextProps) {
-        if(this.props.postList.length !== nextProps.postList.length){
-            return true;
-        }
-        return false;
+        return this.props.postList.length !== nextProps.postList.length;   
     }
 
-    newPostReceive = () => {
+    newPostReceive() {
         if(this.props.postList.length){
             this.props.postRequest("new",this.props.postList[0]._id).catch((error)=>{alert('포스트를 가져오는데 실패하였습니다.')});
         }
     }
 
 
-    InfiniteScroll = () => {
+    InfiniteScroll() {
         if(document.body.clientHeight - window.pageYOffset - window.innerHeight < 250 && !this.props.isLast && !this.props.pending){
             this.props.postRequest("old",this.props.postList[this.props.postList.length-1]._id).catch((error)=>{alert('포스트를 가져오는데 실패하였습니다.');});
         }

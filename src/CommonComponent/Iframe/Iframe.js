@@ -19,31 +19,26 @@ class Iframe extends Component {
         }
         return true;
     }
-
+    
     IframeContentLoad = () => {
         const {htmlSource,cssSource,JsSource,LibList} = this.props;
         this.IfrBox.innerHTML = '';
         const Ifr = document.createElement('iframe');
         this.IfrBox.append(Ifr);
         Ifr.frameBorder=0;
-        const DOMContent = Ifr.contentWindow.document;
-        // const secondFrame = window.frames[0];
-
+        const DOMContent = Ifr.contentWindow.document;    
         const style = document.createElement('style');
         style.textContent = cssSource;
         DOMContent.open();
         DOMContent.write('<head>');
         DOMContent.write(`<style>${cssSource}</style>`)
-
         LibList.forEach((item)=>{    
             DOMContent.write(`<script src=${item.url}></script>`);
         });
-
         DOMContent.write('</head>');
         DOMContent.write(`<body>${htmlSource}</body>`);
         DOMContent.write(`<script>${JsSource}</script>`);
         DOMContent.close();
-        
     }
     render() {
         return (

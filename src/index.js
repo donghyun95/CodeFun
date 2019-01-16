@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App, {Project} from './App';
+import Home from './AppContainer/home';
+import Project from './AppContainer/project';
 import {createStore,applyMiddleware,compose} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
@@ -14,26 +15,24 @@ import PostedList from './component/postedList/postedList';
 import thunk from 'redux-thunk';
 import Forbidden from './component/ForbiddenPage/forbidden';
 
-// 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-let store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger,thunk)));
 
-console.log(store.getState());
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// composeEnhancers(applyMiddleware(thunk))
+let store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
 <Provider store={store}>
     <Router>
         <Switch>
-            <Route path="/" exact component={App} />
+            <Route path="/" exact component={Home} />
             <Route path="/project/:projectId" component={Project}/>
-            <Route path="/login" render={()=><Login></Login>} />
+            <Route path="/login" render = {()=><Login/>}/>
             <Route path="/register"  render={()=><Login register={true}></Login>} />
             <Route path="/userFind/:userId" component={UserFind} ></Route>
             <Route path="/postedList" component={PostedList}></Route>
             <Route component={Forbidden}></Route>
         </Switch>
     </Router>
-    
 </Provider>, 
 document.getElementById('root'));
 

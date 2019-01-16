@@ -8,7 +8,6 @@
     }
 
     &__container {
-
         text-align: center;
 
         &__userName {
@@ -20,7 +19,6 @@
              color:white;
              padding: 1rem;
              text-align: left;
-            //  background-image: linear-gradient(to right,#7c4dff, #2196f3);
              background-color: #7aabf9;
              box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
              border-radius: 5px 5px 0 0;
@@ -29,13 +27,11 @@
         }
 
         &__project {
-
             background-color: #e0e0e0;
             justify-content: space-between;
             overflow: auto;
             display: flex;
             flex-wrap: wrap;
-            width: 60rem;
             height: 45rem;
             box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
             border-radius: 0 0 5px 5px;
@@ -45,7 +41,6 @@
 
     &__Header {
         height: 70px;
-        // background-color: dodgerblue;
         background-image: linear-gradient(to right bottom, #7aabf9, #ff7d59);
         display: flex;
         justify-content: center;
@@ -132,7 +127,6 @@
     }
 
     &__remove {
-        
         position: absolute;
         top: 0;
         right: -10px;

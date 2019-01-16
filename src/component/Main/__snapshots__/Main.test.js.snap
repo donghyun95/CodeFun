@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Component renders without crashing 1`] = `
+<div>
+  <div
+    className="CodeContainer-Cover"
+    style={
+      Object {
+        "height": "200px",
+      }
+    }
+  >
+    <Connect(CodeContainer) />
+  </div>
+  <div
+    className="heightResizable"
+    onMouseDown={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="heightresizable_svgBox"
+    >
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    className="IfrContainer"
+    style={
+      Object {
+        "height": "501px",
+      }
+    }
+  >
+    <Connect(Iframe) />
+  </div>
+</div>
+`;

@@ -11,6 +11,7 @@ class InputType extends Component {
             InputValue: ev.target.value
         });
     }
+    
     AddBtnClick = (value) => {
         if(value.length > 0) {
             this.props.dispatchUrl(value);
