@@ -58,13 +58,12 @@ Resizable 컴포넌트를 개발하는 과정에서 Document의 이벤트발생�
 Iframe 컴포넌트의 최소한의 높이를 유지할 계획이였고 ,그에따라서 Iframe태그 내부로 마우스가 이동하더라도 mouseup 이벤트와 mousemove 이벤트를 Root Document에서 정상적으로 감지할 수 있어야했습니다.
 이 상황에서 3가지 방법을 시도 해보았습니다.
  #### 1. Iframe 의 Document에 addEventListner를 등록하여 Root Document의 mouseup과 mousemove를 대신 호출하기
-    = width를 결정하기위해 Root Document의 event.pageX 값을 받아와야했는데 , 위의 설명대로 Iframe의 event.pageX 를 가져오게되므로 적절하지못했습니다.
+ width를 결정하기위해 Root Document의 event.pageX 값을 받아와야했는데 , 위의 설명대로 Iframe의 event.pageX 를 가져오게되므로 적절하지못했습니다.
  #### 2. Iframe Tag도 결국 Root Document의 Child node중 하나이므로 Event Capture 를 이용하여 Root Document에서 이벤트를 먼저 수신하고 전파하지않기
- <img width="150" src="./event-capture.png">
-    ![](./event-capture.png)
-    = 두번쨰 시도가 적용이 되지않았고 , 이때 각각의 document에서 발생하는 이벤트는 독립적이란것을 알아차렸습니다.
+ <img width="400" src="./event-capture.png">
+ 두번쨰 시도가 적용이 되지않았고 , 이때 각각의 document에서 발생하는 이벤트는 독립적이란것을 알아차렸습니다.
  #### 3. Resizable 컴포넌트 클릭시 Iframe을 hidden 후, mouseup 시 다시 visible 하기
-    = Resizable이 정상적으로 잘 작동하지만 , 사용자 입장에서는 오류가 난듯한 느낌을 주었습니다. 그로인해 hidden 대신 Spinner를 보여주는 방식으로 대체하였습니다.
+ Resizable이 정상적으로 잘 작동하지만 , 사용자 입장에서는 오류가 난듯한 느낌을 주었습니다. 그로인해 hidden 대신 Spinner를 보여주는 방식으로 대체하였습니다.
 
 ### 2. Network resource ratio
 유저가 Code Editor를 이용하여 입력을하면 입력된 값을 기반으로 적용중인 라이브러리의 CDN을 적용하고 Iframe을 새로 그리는 방식인데 , 유저가 글자 하나 하나 입력할때마다 새로 CDN 데이터를 요청하고
