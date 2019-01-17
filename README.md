@@ -3,7 +3,7 @@
 [YouTube](https://www.youtube.com/watch?v=j6cE3Nop7FY)
 ---
 CodeFun은 CodePen을 모티브하여 만든 프로젝트입니다. 코드 타이핑 결과를 바로 빠르게 확인할 수 있으며 프로젝트를 저장할수 있고, 훌륭한 프로젝트는 유저로부터 Star를 받아 주목받을수있습니다.<br>
-[CodeFun](http://www.codefun.site)
+[wwww.codefun.site](http://www.codefun.site)
 ## Installation
 ```
 git clone https://github.com/donghyun95/CodeFun
@@ -66,7 +66,7 @@ Iframe 컴포넌트의 최소한의 높이를 유지할 계획이였고 ,그에�
  #### 3.Resizable 컴포넌트 클릭시 Iframe을 hidden 후, mouseup 시 다시 visible 하기
  Resizable이 정상적으로 잘 작동하지만 , 사용자 입장에서는 오류가 난듯한 느낌을 주었습니다. 그로인해 hidden 대신 Spinner를 보여주는 방식으로 대체하였습니다.
 
-### 2. Network resource ratio
+### 2. Network resource waste
 유저가 Code Editor를 이용하여 입력을하면 입력된 값을 기반으로 사용하려는 라이브러리의 CDN을 Iframe을 새로 그리면서 요청하는 방식인데, 유저가 글자 하나 하나 입력할때마다 새로 CDN 데이터를 요청하고
 Iframe을 다시 생성하는것은 비효율적인 동작이므로 유저의 입력이 멈추면 CDN을 호출하고 Iframe을 생성하는방법으로 구현을 해야했습니다. 유저가 입력시 0.5초의 setTimeout을 생성하고 입력이 들어오면 기존의
 setTimeout을 지우고 새로 setTimeout을 생성함으로써 유저의 입력이 0.5초간 없으면 유저의 입력이 끝난것으로 간주하고 Iframe을 새로 생성함으로써 Network Resource의 낭비를 덜 수 있었습니다.
