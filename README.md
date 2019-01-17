@@ -68,6 +68,18 @@ Iframe 컴포넌트의 최소한의 높이를 유지할 계획이였고 ,그에�
 ### 2. Network resource ratio
 유저가 Code Editor를 이용하여 입력을하면 입력된 값을 기반으로 적용중인 라이브러리의 CDN을 적용하고 Iframe을 새로 그리는 방식인데 , 유저가 글자 하나 하나 입력할때마다 새로 CDN 데이터를 요청하고
 Iframe을 다시 생성하는것은 비효율적인 동작이므로 유저의 입력이 멈추면 CDN을 호출하고 Iframe을 생성하는방법으로 구현을 해야했습니다. 유저가 입력시 0.5초의 setTimeout을 생성하고 입력이 들어오면 기존의
-setTimeout을 지우고 새로 setTimeout을 생성함으로써 유저의 입력이 0.5초간 없으면 유저의 입력이 끝난것으로 간주하고 Iframe을 새로 생성함으로써 Network Resource의 낭비를 조금은 덜 수 있었습니다.
+setTimeout을 지우고 새로 setTimeout을 생성함으로써 유저의 입력이 0.5초간 없으면 유저의 입력이 끝난것으로 간주하고 Iframe을 새로 생성함으로써 Network Resource의 낭비를 덜 수 있었습니다.
 
 ### 3.Node.js Max headerSize in Http.request
+프로젝트를 많이 보유하고있는 유저가 로그인시도시 서버에서 400 Error를 반환하는 Issue가 있었습니다. Error에대해 검색해본결과
+[Header size와 관련하여 400Error를 유추할 수 있었습니다.](https://m.blog.naver.com/PostView.nhn?blogId=elren&logNo=221106374837&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+[Node.js Max headerSize in Http.request](https://stackoverflow.com/questions/24167656/nodejs-max-header-size-in-http-request)
+>The HTTP protocol parser that Node uses appears to be hard-coded with a maximum header size of 80KB. Relevant constant. Since that is a compile-time constant, you would have to use a 
+>custom-compiled version of Node to set that constant larger.
+>
+>It really sounds like the service you are using has made a mistake by putting that much data in a header though. Headers are meant for metadata about the request body. If they have that much 
+>data to return, they should probably be including it in the request body.
+>
+>You could explore using an alternate HTTP parser like http-parser-js, since it doesn't appear to have a limit.
+
+StackOverFlow 검색을 통해 Node.js 의 Maximum Header size가 80kb로 정해져있다는 사실을 알았고, 해당 원인은 JWT토큰을 통해 유저식별의 최소한의 정보만 전달해야함에도 불구하고 Database로부터 해당유저가 보유하고있는 프로젝트 내용까지 전부 포함되도록 작성된것을 체크하지못하였던것이 문제였습니다. 해당 Issue는 JWT토큰으로 전달하는 내용을 수정함으로써 해결하였습니다.
