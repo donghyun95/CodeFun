@@ -70,13 +70,11 @@
     }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 680px) {
     .FeatureList_Box {
         display: none;
     }
     .menuBox {
         display: block;
     }
-    
-
 }
