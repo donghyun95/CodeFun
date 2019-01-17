@@ -63,7 +63,6 @@ Iframe 컴포넌트의 최소한의 높이를 유지할 계획이였고 ,그에�
  두번쨰 시도가 적용이 되지않았고 , 이때 각각의 document에서 발생하는 이벤트는 독립적이란것을 알아차렸습니다.<br>
 
 
- **3. Resizable 컴포넌트 클릭시 Iframe을 hidden 후, mouseup 시 다시 visible 하기**
  #### 3.Resizable 컴포넌트 클릭시 Iframe을 hidden 후, mouseup 시 다시 visible 하기
  Resizable이 정상적으로 잘 작동하지만 , 사용자 입장에서는 오류가 난듯한 느낌을 주었습니다. 그로인해 hidden 대신 Spinner를 보여주는 방식으로 대체하였습니다.
 
