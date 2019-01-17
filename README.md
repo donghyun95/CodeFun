@@ -60,7 +60,7 @@ Iframe 컴포넌트의 최소한의 높이를 유지할 계획이였고 ,그에�
  width를 결정하기위해 Root Document의 event.pageX 값을 받아와야했는데 , 위의 설명대로 Iframe의 event.pageX 를 가져오게되므로 적절하지못했습니다.
  #### 2. Iframe Tag도 결국 Root Document의 Child node중 하나이므로 Event Capture 를 이용하여 Root Document에서 이벤트를 먼저 수신하고 전파하지않기
  <img width="400" src="./event-capture.png"/>
- 두번쨰 시도가 적용이 되지않았고 , 이때 각각의 document에서 발생하는 이벤트는 독립적이란것을 알아차렸습니다.
+ 두번쨰 시도가 적용이 되지않았고 , 이때 각각의 document에서 발생하는 이벤트는 독립적이란것을 알아차렸습니다.<br>
  #### 3. Resizable 컴포넌트 클릭시 Iframe을 hidden 후, mouseup 시 다시 visible 하기
  Resizable이 정상적으로 잘 작동하지만 , 사용자 입장에서는 오류가 난듯한 느낌을 주었습니다. 그로인해 hidden 대신 Spinner를 보여주는 방식으로 대체하였습니다.
 
