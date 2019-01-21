@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import CodeContainer from './CodeContainer';
 import IframeRedux from '../../CommonComponent/Iframe/IframeRedux';
-import Spinner from '../../CommonComponent/Spinner/spinner';
 import cx from 'classnames';
 import './Main.scss';
 class Main extends Component {
@@ -38,7 +37,7 @@ class Main extends Component {
         });
     }
 
-    HeightControll(ev){
+    HeightControll(ev) {
         if (ev.pageY - 60 > 100 && ev.pageY - 60 < document.body.clientHeight - 200) {
             this.setState({
                 Height: ev.pageY - 60
@@ -54,21 +53,21 @@ class Main extends Component {
             }
         }
     }
-    
+
     handleHeightResizable(ev) {
-        ev.preventDefault(); 
-        ev.stopPropagation(); 
-        this.heigthResizeStart(this.HeightControll); 
+        ev.preventDefault();
+        ev.stopPropagation();
+        this.heigthResizeStart(this.HeightControll);
     }
 
     handleMobileHeightResizable(ev) {
         ev.stopPropagation();
-        this.mobileheigthResizeStart(this.mobileHeightControll); 
+        this.mobileheigthResizeStart(this.mobileHeightControll);
     }
 
     render() {
         return (
-            <div>
+            <div className={cx('App__Body')}>
                 <div className={cx('CodeContainer-Cover')} style={{ height: `${this.state.Height}px` }}>
                     <CodeContainer />
                 </div>
@@ -85,15 +84,9 @@ class Main extends Component {
                         </svg>
                     </div>
                 </div>
-                {this.state.hidden ? 
-                    <div className="IframeSpinner" style={{ height: `${window.innerHeight - this.state.Height - 67}px` }}>
-                        <Spinner/> 
-                    </div>
-                    :
-                    <div className={cx("IfrContainer",{ hidden: this.state.hidden })} style={{ height: `${window.innerHeight - this.state.Height - 67}px` }}>
-                        <IframeRedux/>
-                    </div>
-                }
+                <div className={cx("IfrContainer", { hidden: this.state.hidden })} >
+                    <IframeRedux />
+                </div>
             </div>
         );
     }

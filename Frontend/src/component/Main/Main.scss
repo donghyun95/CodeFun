@@ -4,7 +4,7 @@
 }
 
 .hidden {
-    visibility: hidden;
+    pointer-events: none;
 }
 
 .heightResizable {
@@ -28,10 +28,5 @@
     }
 }
 .IfrContainer {
-    height: 585px;
-}
-.IframeSpinner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
 }
