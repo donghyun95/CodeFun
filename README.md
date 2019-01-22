@@ -61,14 +61,11 @@ Iframe 컴포넌트의 최소한의 높이를 유지할 계획이였고 ,그에�
  <img width="400" src="./event-capture.png"/>
  event Capturing을 이용하는 두번째 생각이 적용이 되지않았고 , 
  Root document 와 Iframe document에서 발생하는 이벤트는 독립적이란것을 알아차렸습니다.<br>
+ #### 3.Resizable 컴포넌트 클릭시 Iframe 컴포넌트에 pointer-events : none 설정하기
+ 해당 이슈를 해결하기위해 조사중 pointer-events Css프로퍼티를 사용함으로써 마우스 이벤트의 대상으로 설정하지 않게 할 수 있었습니다. 마우스를 눌렀을때와 뗏을때 동적으로 pointer-events:none 를가진 클래스를
+ 할당해줌으로써 해당 이슈를 해결할 수 있었습니다. 
 
-
-<<<<<<< HEAD
  
-=======
- #### 3.Resizable 컴포넌트 클릭시 Iframe을 hidden 후, mouseup 시 다시 visible 하기
- Iframe 컴포넌트가 hidden으로 숨겨짐에 따라 Root Document로부터 Event를 잘 받아올 수 있어 Resizable이 정상적으로 잘 작동하지만, 사용자 입장에서는 hidden상태인 동안 하얀색의 배경만 보게되어 오류가 난듯한 느낌을 주었습니다.이러한 문제점을 개선하기위 하얀배경 대신 Spinner를 보여주는 방식으로 대체하였습니다.
->>>>>>> b7f7758f49c0bcfd5e68e0347f3ffa86f854d3a8
 
 ### 2. Network resource waste
 유저가 내용을 수정 할 때마다 새로 CDN을 요청을 하게되는데 수정 하는 과정에서 의미없이 너무 많은 CDN 요청을 보내고 있었습니다.유저가 불편을 느끼지 않는 선에서 결과를 확인할 수 있게 화면을 보여주는 방법을 고민해보았습니다.
