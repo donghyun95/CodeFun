@@ -3,22 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './AppContainer/home';
 import Project from './AppContainer/project';
-import {createStore,applyMiddleware,compose} from 'redux';
+import store from './Store';
 import {Provider} from 'react-redux';
-import logger from 'redux-logger';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
-import rootReducer from './reducers';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Login from './component/Login/login';
 import UserFind from './component/userFind/userFind';
 import PostedList from './component/postedList/postedList';
-import thunk from 'redux-thunk';
 import Forbidden from './component/ForbiddenPage/forbidden';
 
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// composeEnhancers(applyMiddleware(thunk))
-let store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
 <Provider store={store}>
