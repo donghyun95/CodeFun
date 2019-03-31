@@ -116,7 +116,7 @@ class CodeContainer extends Component {
                     </div>
                 </div>
                 <div style={{ width: `${this.state.CssWidth}%` }} className={cx('CSScontroll', 'CodeContainer_box')}>
-                    <CodeEditor change={this.props.changecss} name={'CSS'} textvalue={this.props.Cssvalue} mode="text/css"></CodeEditor>
+                    <CodeEditor change={this.props.changecss} name={'SCSS'} textvalue={this.props.Cssvalue} mode="text/css"></CodeEditor>
                 </div>
                 <div className={cx('resizable')} onMouseDown={this.handleJsWebResizableDown} onTouchStart={this.hanldeJsMobileResizableDown}>
                     <div className={cx('resizable_svgBox')}>

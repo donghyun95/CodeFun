@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Iframe.scss';
 class Iframe extends Component {
     IfrBox = null
-
+    sass = new window.Sass();
     componentDidMount() {
         this.IframeContentLoad();
     }
@@ -11,7 +11,7 @@ class Iframe extends Component {
         this.IframeContentLoad();
     }
 
-    shouldComponentUpdate(nextProps,nextState) {
+    shouldComponentUpdate(nextProps) {
         if(!nextProps.isAutoRunChecked){
             if(this.props.UpdateNumber === nextProps.UpdateNumber){
                 return false;
@@ -20,18 +20,25 @@ class Iframe extends Component {
         return true;
     }
     
-    IframeContentLoad = () => {
+    IframeContentLoad = async () => {
         const {htmlSource,cssSource,JsSource,LibList} = this.props;
         this.IfrBox.innerHTML = '';
         const Ifr = document.createElement('iframe');
         this.IfrBox.append(Ifr);
         Ifr.frameBorder=0;
         const DOMContent = Ifr.contentWindow.document;    
-        const style = document.createElement('style');
-        style.textContent = cssSource;
+        let compileScsstoCss;
+        this.sass.writeFile('testfile.scss', cssSource);
+        this.sass.options({ style: window.Sass.style.expanded });
+        await new Promise((resolve)=>{
+            this.sass.compile('@import "testfile";', function(result) {
+                compileScsstoCss = result.text;
+                resolve();
+            });
+        });
         DOMContent.open();
         DOMContent.write('<head>');
-        DOMContent.write(`<style>${cssSource}</style>`)
+        DOMContent.write(`<style>${compileScsstoCss}</style>`)
         LibList.forEach((item)=>{    
             DOMContent.write(`<script src=${item.url}></script>`);
         });

@@ -16,8 +16,7 @@ import 'codemirror/theme/monokai.css';
 import 'codemirror/theme/base16-light.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHtml5,faJsSquare,faCss3Alt } from '@fortawesome/free-brands-svg-icons';
-
+import { faHtml5,faJsSquare,faSass} from '@fortawesome/free-brands-svg-icons';
 
 
 class codeWrite extends Component {
@@ -30,7 +29,7 @@ class codeWrite extends Component {
             </span>)
 
     css3 = (<span className={'cssStyle FaIcon'}>
-                <FontAwesomeIcon icon={faCss3Alt} size={"2x"}/>
+                <FontAwesomeIcon icon={faSass} size={"2x"}/>
             </span>)
 
     jslang = (
@@ -83,7 +82,7 @@ class codeWrite extends Component {
                     {(()=>{
                         switch(this.props.name) {
                             case "HTML": return this.html;
-                            case "CSS" : return this.css3;
+                            case "SCSS" : return this.css3;
                             case "JS" : return this.jslang;
                             default: return undefined;
                         }

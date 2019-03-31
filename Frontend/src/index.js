@@ -13,7 +13,6 @@ import PostedList from './component/postedList/postedList';
 import Forbidden from './component/ForbiddenPage/forbidden';
 
 
-
 ReactDOM.render(
 <Provider store={store}>
     <Router>
