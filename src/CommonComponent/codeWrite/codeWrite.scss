@@ -1,0 +1,44 @@
+@import '../../utill/utll.scss';
+
+
+.codeWrite {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .Editor {
+        height:100%;
+        overflow: hidden;
+    }
+    &_nameBox {
+        display: flex;
+        align-items: center;
+        background-color: #ffebee;
+        // background-color:#bbdefb ;
+        color:black;
+    }
+
+    &_name {
+        font-size: 1.5rem;
+        margin-left: 5px;
+        font-family: $fontStaat, cursive;
+        letter-spacing: 1px;
+    } 
+    div {
+        padding: 0;
+    }
+}
+
+.htmlStyle {
+    color: #f03e3e;
+}
+
+.cssStyle {
+    color: rgb(241, 139, 156);
+}
+
+.jsStyle {
+    color:#fcc419;
+}
+.FaIcon {
+    margin-left:2px;
+}

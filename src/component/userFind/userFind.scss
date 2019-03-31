@@ -1,0 +1,150 @@
+@import '../../utill/utll.scss';
+
+.userFind {
+    &Box{            
+        height: 100vh;
+        background-color:#eceff1 ;
+    }
+    &__container {
+        text-align: center;
+        &__userName {
+            margin-top: 2rem;
+           & > div{
+             font-family: $fontWork sans-serif;
+             font-size: 1.4rem;
+             font-weight: 600;
+             color:white;
+             padding: 1rem;
+             text-align: left;
+             background-color: #7aabf9;
+             box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+             border-radius: 5px 5px 0 0; 
+           }
+        }
+        &__project {
+            background-color: #e0e0e0;
+            justify-content: space-between;
+            overflow: auto;
+            display: flex;
+            flex-wrap: wrap;
+            max-height: 45rem;
+            min-height: 30rem;
+            box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
+            border-radius: 0 0 5px 5px;
+            padding: 0 2rem;
+        }
+    }
+    &__Header {
+        height: 70px;
+        background-image: linear-gradient(to right bottom, #7aabf9, #ff7d59);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        & > a {
+            color: white;
+            font-size:2rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        & .backBtn {
+            color: white;
+            position: absolute;
+            top: 20px; 
+            left: 10px;
+            cursor: pointer;
+        }
+    }
+    &__Body {
+        text-align: left;
+        display: inline-block;
+        margin: 0 auto;
+    }
+}
+
+.projectItem {
+    position: relative;
+    margin: 1rem;
+    max-width: 25rem;
+    min-width: 20rem;
+    height: min-content;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+    animation-name: FadeIn;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    &__Title {
+        width: 100%;
+        background: rgba(255,255,255,1);
+        font-family: 'Work Sans' sans-serif;
+        height: 100%;
+        border-radius: 5px;
+        &_body {
+            border-bottom: 2px solid #7aabf9;
+            padding-bottom: 0.5rem;
+        }
+        .TitleBox {
+            height:content;
+            & > a {
+                height: 100%;
+            }
+            &__Title {
+                font-size: 1.5rem;
+                font-weight: 400;
+                padding-top: 1rem;
+                margin-left:1rem;
+                
+            }
+            &__Create {
+                font-size: 0.8rem;
+                color: grey;
+                text-align: right;
+                padding-right: 1rem;
+            }
+        }
+        & a {
+          text-decoration: none;
+          color: black;
+          font-size: 1rem;
+          font-weight: 600;  
+        }
+    }
+    &__star {
+        padding: 0.2rem 0 0.5rem 0.5rem;
+        font-weight: 600;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    &__remove {
+        position: absolute;
+        top: 0;
+        right: -10px;
+        color: #f13532;
+        padding: 0 1rem;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+}
+.starColor {
+    color: #ffea00;
+    font-size: 1.7rem;
+    margin-right: 0.5rem;
+    font-family: Georgia, "맑은 고딕"
+}
+.shareFeature {
+    font-size: 2rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    color: #c5e1a5 ;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0.01;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

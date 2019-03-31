@@ -1,0 +1,62 @@
+@import '../../../../utill/utll.scss';
+
+.SearchBox {
+    min-height: 500px;
+    min-width: 25rem;
+    color: white;
+    text-align: center;
+    font-family: $fontWork , sans-serif;
+    .Search__userList {
+        margin-top: 1rem;
+    }
+    .userItemBox {
+        width: 25rem;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+        padding: 1rem 0;
+        border-bottom: 0.5px solid grey;
+        &:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+    }
+    .userLink {
+        width: 100%;
+        height: 100%;
+    }
+    .userLink:visited,.userLink:link {
+        text-decoration: none;
+        color: white;
+        font-size:1.5rem;
+    }
+}
+
+.Search {
+    &__input {
+        font-family: $fontWork , sans-serif;
+        font-size: 2rem;
+        width: 15rem;
+        text-align:center;
+        border:none;
+        padding-bottom: 0.1rem;
+        outline: none;
+        border-bottom: 2px solid grey;
+        background-color: transparent;
+        color: white;
+        transition: all .4s;
+        &:focus {
+            width: 25rem;
+            border-bottom: 2px solid #90caf9;
+        }
+        &::placeholder {
+            color: #eeeeee ;
+        }
+    }
+}
+
+@media (max-width:540px) {
+    .Search {
+        &__input{
+            margin-top: 6rem;
+        }
+    }
+}

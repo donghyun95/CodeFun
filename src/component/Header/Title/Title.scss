@@ -1,0 +1,39 @@
+@import '../../../utill/utll.scss';
+
+
+.TitleBox {
+    flex: 1;
+    font-family: $fontWork , sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    .Title {
+        font-size:1.2rem;
+        font-weight: 600;
+        color:#dcedc8;
+    }
+    .TitleInput {
+        color: white;
+        font-size:1.2rem;
+        font-weight: 600;
+        font-family: $fontWork , sans-serif;
+        border:none;
+        background-color: transparent;
+        outline: none;
+    }
+    
+    .UserId {
+        padding-top:3px;
+        font-size: 0.8rem;
+        font-weight:500;
+        & > span:first-child {
+            color: #fff59d;
+            margin-right: 0.5rem;
+        }
+        & > a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}

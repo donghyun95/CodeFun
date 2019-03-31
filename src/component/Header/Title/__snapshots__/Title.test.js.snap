@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title renders without crashing 1`] = `
+<div
+  className="TitleBox"
+  onClick={[Function]}
+>
+  <div
+    className="Title"
+    onDoubleClick={[Function]}
+  >
+    <span>
+      No Title
+    </span>
+  </div>
+  <div
+    className="UserId"
+  >
+    <span>
+      A PEN BY
+    </span>
+    <Link
+      replace={false}
+      to="/userFind/None"
+    >
+      None
+    </Link>
+  </div>
+</div>
+`;

@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodeContainer renders without crashing 1`] = `
+<Fragment>
+  <div
+    className="CodeContainer_box"
+    style={
+      Object {
+        "width": "33%",
+      }
+    }
+  >
+    <codeWrite
+      mode="text/html"
+      name="HTML"
+      textvalue="htmlTest"
+    />
+  </div>
+  <div
+    className="resizable"
+    onMouseDown={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="resizable_svgBox"
+    >
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    className="CSScontroll CodeContainer_box"
+    style={
+      Object {
+        "width": "33%",
+      }
+    }
+  >
+    <codeWrite
+      mode="text/css"
+      name="CSS"
+      textvalue="cssTest"
+    />
+  </div>
+  <div
+    className="resizable"
+    onMouseDown={[Function]}
+    onTouchStart={[Function]}
+  >
+    <div
+      className="resizable_svgBox"
+    >
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+      <svg
+        height="10"
+        width="10"
+      >
+        <circle
+          cx="3"
+          cy="3"
+          fill="white"
+          r="3"
+          strokeWidth="3"
+        />
+      </svg>
+    </div>
+  </div>
+  <div
+    className="CodeContainer_box"
+    style={
+      Object {
+        "width": "33%",
+      }
+    }
+  >
+    <codeWrite
+      mode="text/javascript"
+      name="JS"
+      textvalue="jsTest"
+    />
+  </div>
+</Fragment>
+`;

@@ -1,0 +1,126 @@
+@import '.././../utill/utll.scss';
+* {
+    box-sizing:border-box;
+}
+.LoginBody {
+    font-family: $fontWork , sans-serif;
+    height: 100vh;
+    background-image:
+    linear-gradient(to right bottom, #7aabf9, #ff7d59);
+    .LoginBox {
+        width: 50%;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: -80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__Cover {
+            margin-top: 60px;
+            background-color: rgba(243,243,243,0.4);
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+            border-radius: 5px;
+            padding: 3rem;
+            z-index:10;
+            & > a {
+                font-size: 3rem;
+                font-weight: 600;
+                color: #ce93d8;
+                text-decoration: none;
+            }
+        }
+        .Card {
+            margin-top: 15px;
+            &__top {
+                margin-top:15px;
+                color: #ffebee;
+                padding-bottom: 7px;
+                border-bottom: 2px solid #ffebee;
+                font-size: 1.5rem;
+            }
+            &__form {
+                div > input {
+                    margin-top: 20px;
+                    margin-left: 5px;
+                    background-color: white;
+                    border:none;
+                    font-size: 1rem;
+                    border-radius: 25px;
+                    outline: none;
+                    padding: 0 7px;
+                }
+                margin-bottom:1rem;    
+            }
+            &__submit {
+                margin-top: 1rem;
+                border:none;
+                border-radius: 5px;
+                font-size: 1.3rem;
+                padding: 10px 35px;
+                background-color: #9fa8da;
+                cursor: pointer;
+                color: white;
+                &:hover {
+                    background-color: #5c6bc0 ;
+                }
+            }
+        }
+    }
+}
+
+.urlLink {
+    a {
+        text-decoration: none;
+        color: #7e57c2;
+        font-size: 1.5rem;
+    }
+}
+
+.loginColor{
+    color: #ce93d8;
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+}
+.loginKey {
+    margin-right: 0.3rem;
+}
+.SpinnerBox {
+    height: 100vh;
+    background-image:
+    linear-gradient(to right bottom, #7aabf9, #ff7d59);
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+.loginFail {
+    animation: FailAnimation 0.5s ease;
+}
+$transfromVar : 25px;
+@keyframes FailAnimation{
+    from {
+        transform: translateX(-$transfromVar)
+    }
+    25% {
+        transform : translateX($transfromVar)
+    }
+    50% {
+        transform: translateX(-$transfromVar)
+    }
+    75% {
+        transform: translateX($transfromVar)
+    }
+    to {
+        transform: translateX(-$transfromVar)
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .loginColor {
+        display: inline-block;
+        font-size: 2rem;
+        margin:0.5rem 0;
+    }
+    .LoginBody .LoginBox .Card__form div > input {
+        margin: 0;
+    }
+}

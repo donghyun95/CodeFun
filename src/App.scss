@@ -1,0 +1,19 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.codeContainer {
+  display: flex;
+}
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__Body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}

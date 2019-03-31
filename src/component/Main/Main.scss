@@ -1,0 +1,32 @@
+.CodeContainer-Cover {
+    display: flex;
+    overflow: hidden;
+}
+
+.hidden {
+    pointer-events: none;
+}
+
+.heightResizable {
+    border-radius: 2px;
+    background-color: #dee2e6;
+    min-height: 0.8rem;
+    position: relative;
+    transition: all .5s;
+    cursor: row-resize;
+    &:active,&:hover {
+        background-color: #868e96;
+    }
+    
+    .heightresizable_svgBox {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.IfrContainer {
+    flex: 1;
+}

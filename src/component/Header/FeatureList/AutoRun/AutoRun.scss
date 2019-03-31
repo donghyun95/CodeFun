@@ -1,0 +1,19 @@
+@import '../../../../utill/utll.scss';
+
+.AutoRunBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 5px;
+    input {
+        margin-right: 4px;
+        cursor: pointer;
+    }
+    span {
+        color: white;
+        font-family: $fontStaat, cursive;
+        letter-spacing: 1px;
+        font-size: 1rem;
+    }
+}

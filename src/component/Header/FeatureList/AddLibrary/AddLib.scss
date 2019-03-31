@@ -1,0 +1,61 @@
+@import '../../../../utill/utll.scss';
+
+.AddLibrary {
+    width: 35%;
+    margin-left: 20px;
+    border-radius: 5px;
+    border:2px solid white;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    .header {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color:white;
+        height:10%;
+        background-color: black;
+        .closeBtn {
+            width: 4rem;
+            background-color: #f03e3e;
+            height: 2.5rem;
+            border:none;
+            border-radius: 5px;
+            cursor: pointer;
+            color:white;
+            &:hover {
+                background-color: #c92a2a;
+            }
+        }
+    }
+
+    &-Header_text {
+        display: inline-block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        font-size: 2rem;
+    }
+
+    .main {
+        padding: 1rem 1.5rem;
+        background-color: white;
+    }
+    .footer {
+        flex: 1;
+        background-color: white;
+        overflow: auto;
+        .LibListBox { 
+            margin: 15px 20px;
+            margin-top: 0;
+            height: 92%;
+            overflow: auto;
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .AddLibrary{
+        width: 100%;
+        margin: 0;
+    }
+}
