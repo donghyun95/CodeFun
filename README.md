@@ -17,7 +17,6 @@ npm start
 - CDN Link 추가 / 수정 / 삭제
 - Codemirror를 이용한 Code Editor
 - Code Editor , Iframe Resizable
-- Scss => css Compile
 - Project Access 권한에 따라 Title 수정
 - AutoRun Toggle
 - Project Save시 UrlSharing
@@ -29,7 +28,7 @@ npm start
   - 5초간격으로 새로 등록된 프로젝트 Data Api요청
 - 페이스북 좋아요 기능과 유사한 Star
 - Responsive layout
-
+- Scss => css Compile `3월 31일 기능추가` 
 ## Skills
  - React
  - Redux
