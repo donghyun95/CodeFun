@@ -10,6 +10,7 @@ git clone https://github.com/donghyun95/CodeFun
 cd FrontEnd
 npm install
 npm start
+...
 ```
 
 ## Features
